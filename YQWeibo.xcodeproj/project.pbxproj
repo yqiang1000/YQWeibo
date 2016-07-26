@@ -18,6 +18,17 @@
 		B8054D521D4616F800D3BA1B /* YQWeiboUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8054D511D4616F800D3BA1B /* YQWeiboUITests.m */; };
 		B82785811D4717250046782B /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785741D4717250046782B /* libWeiboSDK.a */; };
 		B82785821D4717250046782B /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B827857E1D4717250046782B /* WeiboSDK.bundle */; };
+		B82785841D4717850046782B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785831D4717850046782B /* QuartzCore.framework */; };
+		B82785861D47178D0046782B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785851D47178D0046782B /* ImageIO.framework */; };
+		B82785881D4717970046782B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785871D4717970046782B /* SystemConfiguration.framework */; };
+		B827858A1D4717A20046782B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785891D4717A20046782B /* Security.framework */; };
+		B827858C1D4717AB0046782B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B827858B1D4717AB0046782B /* CoreTelephony.framework */; };
+		B827858E1D4717B50046782B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B827858D1D4717B50046782B /* CoreText.framework */; };
+		B82785901D4717BE0046782B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B827858F1D4717BE0046782B /* UIKit.framework */; };
+		B82785921D4717C60046782B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785911D4717C60046782B /* Foundation.framework */; };
+		B82785941D4717D00046782B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785931D4717D00046782B /* CoreGraphics.framework */; };
+		B82785961D4717D90046782B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785951D4717D90046782B /* libz.tbd */; };
+		B82785981D4717E20046782B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785971D4717E20046782B /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +80,17 @@
 		B827857E1D4717250046782B /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		B827857F1D4717250046782B /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
 		B82785801D4717250046782B /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
+		B82785831D4717850046782B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B82785851D47178D0046782B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		B82785871D4717970046782B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B82785891D4717A20046782B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B827858B1D4717AB0046782B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		B827858D1D4717B50046782B /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		B827858F1D4717BE0046782B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B82785911D4717C60046782B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B82785931D4717D00046782B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B82785951D4717D90046782B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		B82785971D4717E20046782B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		FEC2A9639837CF5BF67A9F0C /* libPods-YQWeibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YQWeibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -77,6 +99,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B82785981D4717E20046782B /* libsqlite3.tbd in Frameworks */,
+				B82785961D4717D90046782B /* libz.tbd in Frameworks */,
+				B82785941D4717D00046782B /* CoreGraphics.framework in Frameworks */,
+				B82785921D4717C60046782B /* Foundation.framework in Frameworks */,
+				B82785901D4717BE0046782B /* UIKit.framework in Frameworks */,
+				B827858E1D4717B50046782B /* CoreText.framework in Frameworks */,
+				B827858C1D4717AB0046782B /* CoreTelephony.framework in Frameworks */,
+				B827858A1D4717A20046782B /* Security.framework in Frameworks */,
+				B82785881D4717970046782B /* SystemConfiguration.framework in Frameworks */,
+				B82785861D47178D0046782B /* ImageIO.framework in Frameworks */,
+				B82785841D4717850046782B /* QuartzCore.framework in Frameworks */,
 				3D180C6B20AEB58E7C22571E /* libPods-YQWeibo.a in Frameworks */,
 				B82785811D4717250046782B /* libWeiboSDK.a in Frameworks */,
 			);
@@ -102,6 +135,17 @@
 		339E70E265E38DF8CFB42688 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B82785971D4717E20046782B /* libsqlite3.tbd */,
+				B82785951D4717D90046782B /* libz.tbd */,
+				B82785931D4717D00046782B /* CoreGraphics.framework */,
+				B82785911D4717C60046782B /* Foundation.framework */,
+				B827858F1D4717BE0046782B /* UIKit.framework */,
+				B827858D1D4717B50046782B /* CoreText.framework */,
+				B827858B1D4717AB0046782B /* CoreTelephony.framework */,
+				B82785891D4717A20046782B /* Security.framework */,
+				B82785871D4717970046782B /* SystemConfiguration.framework */,
+				B82785851D47178D0046782B /* ImageIO.framework */,
+				B82785831D4717850046782B /* QuartzCore.framework */,
 				FEC2A9639837CF5BF67A9F0C /* libPods-YQWeibo.a */,
 			);
 			name = Frameworks;
