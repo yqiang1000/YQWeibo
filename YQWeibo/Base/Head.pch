@@ -1,0 +1,26 @@
+//
+//  Head.pch
+//  YQWeibo
+//
+//  Created by WeibaYeQiang on 16/7/26.
+//  Copyright © 2016年 YQ. All rights reserved.
+//
+
+#ifndef Head_pch
+#define Head_pch
+
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+
+/**
+ *  微博appkey
+ *  微博appSecret
+ *  回调页
+ */
+#define kAppKey @"3451136944"
+#define kAppSecret @"c5cc4575aa8fee4d15da9925775113f7"
+#define kRedirectURL @"https://api.weibo.com/oauth2/default.html"
+
+#import "WeiboSDK.h"
+
+#endif /* Head_pch */

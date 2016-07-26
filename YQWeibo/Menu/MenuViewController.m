@@ -16,7 +16,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor orangeColor];
+    
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+    [button addTarget:self action:@selector(hello) forControlEvents:UIControlEventTouchUpInside];
+    button.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:button];
+
+}
+
+- (void)hello {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

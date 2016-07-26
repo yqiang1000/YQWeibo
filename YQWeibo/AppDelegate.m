@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "BaseTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -16,8 +17,26 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [[BaseTabBarController alloc] init];
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+- (void)weiboInit {
+    [WeiboSDK enableDebugMode:YES];
+    [WeiboSDK registerApp:kAppKey];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation {
+    return [WeiboSDK handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [WeiboSDK handleOpenURL:url delegate:self];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

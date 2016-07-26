@@ -10,8 +10,6 @@
 		3D180C6B20AEB58E7C22571E /* libPods-YQWeibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEC2A9639837CF5BF67A9F0C /* libPods-YQWeibo.a */; };
 		B8054D2E1D4616F800D3BA1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8054D2D1D4616F800D3BA1B /* main.m */; };
 		B8054D311D4616F800D3BA1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8054D301D4616F800D3BA1B /* AppDelegate.m */; };
-		B8054D341D4616F800D3BA1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8054D331D4616F800D3BA1B /* ViewController.m */; };
-		B8054D371D4616F800D3BA1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8054D351D4616F800D3BA1B /* Main.storyboard */; };
 		B8054D391D4616F800D3BA1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8054D381D4616F800D3BA1B /* Assets.xcassets */; };
 		B8054D3C1D4616F800D3BA1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8054D3A1D4616F800D3BA1B /* LaunchScreen.storyboard */; };
 		B8054D471D4616F800D3BA1B /* YQWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8054D461D4616F800D3BA1B /* YQWeiboTests.m */; };
@@ -67,11 +65,8 @@
 		4DC7122337BCEF8316F5A17E /* Pods-YQWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YQWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YQWeibo/Pods-YQWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		B8054D291D4616F800D3BA1B /* YQWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YQWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8054D2D1D4616F800D3BA1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B8054D2F1D4616F800D3BA1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B8054D301D4616F800D3BA1B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B8054D321D4616F800D3BA1B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B8054D331D4616F800D3BA1B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		B8054D361D4616F800D3BA1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B8054D2F1D4616F800D3BA1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
+		B8054D301D4616F800D3BA1B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
 		B8054D381D4616F800D3BA1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8054D3B1D4616F800D3BA1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8054D3D1D4616F800D3BA1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,6 +123,7 @@
 		B8EB5B401D4731FE00F93E63 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		B8EB5B421D47323100F93E63 /* UIStoryboard+LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+LoadViewController.h"; sourceTree = "<group>"; };
 		B8EB5B431D47323100F93E63 /* UIStoryboard+LoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+LoadViewController.m"; sourceTree = "<group>"; };
+		B8EB5B451D47368B00F93E63 /* Head.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Head.pch; sourceTree = "<group>"; };
 		FEC2A9639837CF5BF67A9F0C /* libPods-YQWeibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YQWeibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -230,11 +226,6 @@
 				B8EB5B131D4730E700F93E63 /* Menu */,
 				B8EB5B171D4730E700F93E63 /* Message */,
 				B8EB5B1B1D4730E700F93E63 /* Search */,
-				B8054D2F1D4616F800D3BA1B /* AppDelegate.h */,
-				B8054D301D4616F800D3BA1B /* AppDelegate.m */,
-				B8054D321D4616F800D3BA1B /* ViewController.h */,
-				B8054D331D4616F800D3BA1B /* ViewController.m */,
-				B8054D351D4616F800D3BA1B /* Main.storyboard */,
 				B8054D381D4616F800D3BA1B /* Assets.xcassets */,
 				B8054D3A1D4616F800D3BA1B /* LaunchScreen.storyboard */,
 				B8054D3D1D4616F800D3BA1B /* Info.plist */,
@@ -301,6 +292,9 @@
 				B8EB5B231D47313300F93E63 /* BaseNavigationController.m */,
 				B8EB5B251D47314400F93E63 /* BaseViewController.h */,
 				B8EB5B261D47314400F93E63 /* BaseViewController.m */,
+				B8054D2F1D4616F800D3BA1B /* AppDelegate.h */,
+				B8054D301D4616F800D3BA1B /* AppDelegate.m */,
+				B8EB5B451D47368B00F93E63 /* Head.pch */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -617,7 +611,6 @@
 				B8EB5B2C1D47317E00F93E63 /* Me.storyboard in Resources */,
 				B8EB5B321D4731CC00F93E63 /* Search.storyboard in Resources */,
 				B8054D391D4616F800D3BA1B /* Assets.xcassets in Resources */,
-				B8054D371D4616F800D3BA1B /* Main.storyboard in Resources */,
 				B8EB5B301D4731C500F93E63 /* Message.storyboard in Resources */,
 				B82785821D4717250046782B /* WeiboSDK.bundle in Resources */,
 			);
@@ -695,7 +688,6 @@
 				B8EB5B211D47311B00F93E63 /* BaseTabBarController.m in Sources */,
 				B8EB5B3B1D4731ED00F93E63 /* MenuViewController.m in Sources */,
 				B8EB5B271D47314400F93E63 /* BaseViewController.m in Sources */,
-				B8054D341D4616F800D3BA1B /* ViewController.m in Sources */,
 				B8054D311D4616F800D3BA1B /* AppDelegate.m in Sources */,
 				B8054D2E1D4616F800D3BA1B /* main.m in Sources */,
 				B8EB5B3E1D4731F600F93E63 /* MessageViewController.m in Sources */,
@@ -739,14 +731,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B8054D351D4616F800D3BA1B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B8054D361D4616F800D3BA1B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B8054D3A1D4616F800D3BA1B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -843,6 +827,7 @@
 			baseConfigurationReference = 206197291C719F3DF106A14C /* Pods-YQWeibo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = /Users/weibayeqiang/YQWeibo/YQWeibo/Base/Head.pch;
 				INFOPLIST_FILE = YQWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -859,6 +844,7 @@
 			baseConfigurationReference = 4DC7122337BCEF8316F5A17E /* Pods-YQWeibo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = /Users/weibayeqiang/YQWeibo/YQWeibo/Base/Head.pch;
 				INFOPLIST_FILE = YQWeibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
