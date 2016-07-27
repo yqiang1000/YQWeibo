@@ -16,7 +16,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blueColor];
+    
+    
+}
+
+- (IBAction)registAction:(UIButton *)sender {
+    
+}
+
+- (IBAction)loginInAction:(UIButton *)sender {
+    
+    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+    request.redirectURI = kRedirectURL;
+    request.scope = @"all";
+    [WeiboSDK sendRequest:request];
+    
 }
 
 - (void)didReceiveMemoryWarning {

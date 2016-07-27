@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BaseTabBarController.h"
+#import "WBHttpRequest.h"
 
 @interface WBBaseRequest ()
 - (void)debugPrint;
@@ -37,6 +38,9 @@
 - (void)weiboInit {
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kAppKey];
+    
+    
+    
 }
 
 - (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
@@ -45,7 +49,35 @@
 
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
     
+    if ([response isKindOfClass:[WBSendMessageToWeiboResponse class]]) {
+        WBSendMessageToWeiboResponse *sendMessageToWeiboResponse = (WBSendMessageToWeiboResponse *)response;
+        NSString *accessToken = sendMessageToWeiboResponse.authResponse.accessToken;
+        if (accessToken) {
+            self.wbtoken = accessToken;
+        }
+        
+        NSString *userId = sendMessageToWeiboResponse.authResponse.userID;
+        if (userId) {
+            self.wbCurrentUserID = userId;
+        }
+        
+    } else if ([response isKindOfClass:[WBAuthorizeResponse class]]) {
+        WBAuthorizeResponse *authorizeResponse = (WBAuthorizeResponse *)response;
+        self.wbtoken = [authorizeResponse accessToken];
+        self.wbCurrentUserID = [authorizeResponse userID];
+        
+        //存到本地
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        
+        [userDefaults setObject:self.wbtoken forKey:kWeiboToken];
+        [userDefaults setObject:self.wbCurrentUserID forKey:kCurrentUserID];
+        
+        [userDefaults synchronize];
+    }
+    
 }
+
+
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
@@ -56,6 +88,7 @@
 {
     return [WeiboSDK handleOpenURL:url delegate:self ];
 }
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

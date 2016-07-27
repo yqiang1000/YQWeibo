@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Base Navigation Controller-->
@@ -33,8 +34,40 @@
                     <view key="view" contentMode="scaleToFill" id="Uvs-nt-yX5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGm-IP-3fM">
+                                <rect key="frame" x="66" y="364" width="30" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="lNm-Lz-Uum"/>
+                                    <constraint firstAttribute="height" constant="30" id="syy-xB-QLq"/>
+                                </constraints>
+                                <state key="normal" title="注册"/>
+                                <connections>
+                                    <action selector="registAction:" destination="IrQ-IY-Re6" eventType="touchUpInside" id="Ya8-5O-IxN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2op-W7-VdQ">
+                                <rect key="frame" x="224" y="364" width="30" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="h85-be-bPs"/>
+                                    <constraint firstAttribute="width" constant="30" id="qDd-V8-yho"/>
+                                </constraints>
+                                <state key="normal" title="登录"/>
+                                <connections>
+                                    <action selector="loginInAction:" destination="IrQ-IY-Re6" eventType="touchUpInside" id="yzO-F6-gUu"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2op-W7-VdQ" firstAttribute="top" secondItem="KB0-FJ-M7T" secondAttribute="bottom" constant="300" id="0uW-Am-vGU"/>
+                            <constraint firstItem="AGm-IP-3fM" firstAttribute="leading" secondItem="Uvs-nt-yX5" secondAttribute="leadingMargin" constant="50" id="1X4-aj-zLa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2op-W7-VdQ" secondAttribute="trailing" constant="50" id="5EU-Tm-Jsh"/>
+                            <constraint firstItem="AGm-IP-3fM" firstAttribute="top" secondItem="KB0-FJ-M7T" secondAttribute="bottom" constant="300" id="Q8x-3i-lwa"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0P0-sI-0Em"/>
                 </viewController>

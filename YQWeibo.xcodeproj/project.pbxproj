@@ -14,6 +14,7 @@
 		B8054D3C1D4616F800D3BA1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8054D3A1D4616F800D3BA1B /* LaunchScreen.storyboard */; };
 		B8054D471D4616F800D3BA1B /* YQWeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8054D461D4616F800D3BA1B /* YQWeiboTests.m */; };
 		B8054D521D4616F800D3BA1B /* YQWeiboUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8054D511D4616F800D3BA1B /* YQWeiboUITests.m */; };
+		B80F94381D48B5AB00ADB95F /* BaseHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = B80F94371D48B5AB00ADB95F /* BaseHttp.m */; };
 		B82785811D4717250046782B /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785741D4717250046782B /* libWeiboSDK.a */; };
 		B82785821D4717250046782B /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B827857E1D4717250046782B /* WeiboSDK.bundle */; };
 		B82785841D4717850046782B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785831D4717850046782B /* QuartzCore.framework */; };
@@ -76,6 +77,8 @@
 		B8054D4D1D4616F800D3BA1B /* YQWeiboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YQWeiboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8054D511D4616F800D3BA1B /* YQWeiboUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQWeiboUITests.m; sourceTree = "<group>"; };
 		B8054D531D4616F800D3BA1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B80F94361D48B5AB00ADB95F /* BaseHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseHttp.h; sourceTree = "<group>"; };
+		B80F94371D48B5AB00ADB95F /* BaseHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseHttp.m; sourceTree = "<group>"; };
 		B82785741D4717250046782B /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		B82785751D4717250046782B /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
 		B82785761D4717250046782B /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
@@ -495,6 +498,8 @@
 			children = (
 				B8EB5B421D47323100F93E63 /* UIStoryboard+LoadViewController.h */,
 				B8EB5B431D47323100F93E63 /* UIStoryboard+LoadViewController.m */,
+				B80F94361D48B5AB00ADB95F /* BaseHttp.h */,
+				B80F94371D48B5AB00ADB95F /* BaseHttp.m */,
 			);
 			path = YeTool;
 			sourceTree = "<group>";
@@ -693,6 +698,7 @@
 				B8EB5B3E1D4731F600F93E63 /* MessageViewController.m in Sources */,
 				B8EB5B441D47323100F93E63 /* UIStoryboard+LoadViewController.m in Sources */,
 				B8EB5B351D4731DC00F93E63 /* HomeViewController.m in Sources */,
+				B80F94381D48B5AB00ADB95F /* BaseHttp.m in Sources */,
 				B8EB5B411D4731FE00F93E63 /* SearchViewController.m in Sources */,
 				B8EB5B381D4731E500F93E63 /* MeViewController.m in Sources */,
 				B8EB5B241D47313300F93E63 /* BaseNavigationController.m in Sources */,

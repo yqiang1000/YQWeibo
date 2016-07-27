@@ -21,6 +21,16 @@
 #define kAppSecret @"c5cc4575aa8fee4d15da9925775113f7"
 #define kRedirectURL @"https://api.weibo.com/oauth2/default.html"
 
+#define kWeiboToken @"wbToken"
+#define kCurrentUserID @"userId"
+
+
 #import "WeiboSDK.h"
+#import "YYModel.h"
+
+#define API_Firends @"https://api.weibo.com/2/statuses/friends_timeline.json" //获取关注用户的最新微博
+
+
+
 
 #endif /* Head_pch */
