@@ -9,6 +9,14 @@
 #import "AppDelegate.h"
 #import "BaseTabBarController.h"
 
+@interface WBBaseRequest ()
+- (void)debugPrint;
+@end
+
+@interface WBBaseResponse ()
+- (void)debugPrint;
+@end
+
 @interface AppDelegate ()
 
 @end
@@ -22,7 +30,7 @@
     self.window.rootViewController = [[BaseTabBarController alloc] init];
     
     [self.window makeKeyAndVisible];
-    
+    [self weiboInit];
     return YES;
 }
 
@@ -31,13 +39,24 @@
     [WeiboSDK registerApp:kAppKey];
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation {
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
+    
+}
+
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
+    
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
     return [WeiboSDK handleOpenURL:url delegate:self];
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [WeiboSDK handleOpenURL:url delegate:self];
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [WeiboSDK handleOpenURL:url delegate:self ];
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

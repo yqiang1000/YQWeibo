@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor yellowColor];
+    
+//    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+//    request.redirectURI = kRedirectURL;
+//    [WeiboSDK sendRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {

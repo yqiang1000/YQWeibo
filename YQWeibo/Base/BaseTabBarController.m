@@ -51,6 +51,9 @@
     }
     
     NSArray *color = @[[UIColor redColor],[UIColor orangeColor],[UIColor blueColor],[UIColor yellowColor],[UIColor blackColor]];
+    NSArray *images = @[
+                        @"timeline_relationship_icon_addattention@3x.png",
+                        ];
     
     //add new
     CGFloat Bw = kScreenWidth / 5;
