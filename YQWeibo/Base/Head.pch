@@ -12,6 +12,8 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
+
+
 /**
  *  微博appkey
  *  微博appSecret
@@ -21,16 +23,47 @@
 #define kAppSecret @"c5cc4575aa8fee4d15da9925775113f7"
 #define kRedirectURL @"https://api.weibo.com/oauth2/default.html"
 
-#define kWeiboToken @"wbToken"
-#define kCurrentUserID @"userId"
+//存放登陆信息
+#define kWeiboDictionary @"weiboDictionary"
+#define kWeiboToken @"weiboToken"
+#define kWeiboUserId @"weiboUserId"
+#define kWeiboRefreshToken @"weiboRefreshToken"
+
+#define kGetToken [[[NSUserDefaults standardUserDefaults] objectForKey:kWeiboDictionary] objectForKey:kWeiboToken]
+#define kGetUserId [[[NSUserDefaults standardUserDefaults] objectForKey:kWeiboDictionary] objectForKey:kWeiboUserId]
 
 
 #import "WeiboSDK.h"
 #import "YYModel.h"
+#import "NSObject+YYModel.h"
+#import "UIStoryboard+LoadViewController.h"
+#import "YeHttp.h"
 
-#define API_Firends @"https://api.weibo.com/2/statuses/friends_timeline.json" //获取关注用户的最新微博
+#define Url(UrlStr) [NSString stringWithFormat:@"%@%@.json",BaseUrl,UrlStr]
+#define BaseUrl @"https://api.weibo.com/2/"
+#define API_Firends @"statuses/friends_timeline" //获取关注用户的最新微博
+#define API_Public @"statuses/public_timeline"	//获取最新的公共微博
+//#define API_Firends @"statuses/friends_timeline" //获取当前登录用户及其所关注用户的最新微博
+//statuses/home_timeline	获取当前登录用户及其所关注用户的最新微博
+//statuses/friends_timeline/ids	获取当前登录用户及其所关注用户的最新微博的ID
+//statuses/user_timeline	获取用户发布的微博
+//statuses/user_timeline/ids	获取用户发布的微博的ID
+//statuses/timeline_batch	批量获取指定的一批用户的微博列表
+//statuses/repost_timeline	返回一条原创微博的最新转发微博
+//statuses/repost_timeline/ids	获取一条原创微博的最新转发微博的ID
+//statuses/mentions	获取@当前用户的最新微博
+//statuses/mentions/ids	获取@当前用户的最新微博的ID
+//statuses/bilateral_timeline	获取双向关注用户的最新微博
+//statuses/show	根据ID获取单条微博信息
+//statuses/show_batch	根据微博ID批量获取微博信息
+//statuses/querymid	通过id获取mid
+//statuses/queryid	通过mid获取id
+//statuses/count	批量获取指定微博的转发数评论数
+//statuses/go	根据ID跳转到单条微博页
+//emotions	获取官方表情
 
-
+#define API_User_Info @"users/show" //获取用户信息
+#define API_User_Count @"users/counts" //批量获取用户的粉丝数、关注数、微博数
 
 
 #endif /* Head_pch */

@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface MessageViewController : BaseViewController
-
+@interface MessageViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (assign, nonatomic) CGFloat cellHeight;
 @end

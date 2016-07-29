@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor orangeColor];
-    
+    self.title = @"编辑";
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
     [button addTarget:self action:@selector(hello) forControlEvents:UIControlEventTouchUpInside];
     button.backgroundColor = [UIColor whiteColor];

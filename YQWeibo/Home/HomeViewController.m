@@ -8,6 +8,10 @@
 
 #import "HomeViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import "YeHttp.h"
+#import "HomeModel.h"
+#import "HomeLayout.h"
+#import "UserModel.h"
 
 @interface HomeViewController ()<WBHttpRequestDelegate>
 
@@ -17,20 +21,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor yellowColor];
     
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
-    [button addTarget:self action:@selector(loadData) forControlEvents:UIControlEventTouchUpInside];
-    button.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:button];
-    
+    [self initUI];
     
 }
 
 #pragma mark - 初始化
 
 - (void)initUI {
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
+    [button addTarget:self action:@selector(loadData) forControlEvents:UIControlEventTouchUpInside];
+    button.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:button];
     
+    //设置导航栏
+    [self setNavi];
 }
 
 #pragma mark - View(页面处理)
@@ -43,60 +48,71 @@
 
 
 #pragma mark - private methods(内部接口)
-
+- (void)titleButton:(UIButton *)button {
+    NSLog(@"dianji");
+}
 
 #pragma mark - lazy loading
+- (void)setNavi {
 
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:kGetToken forKey:@"access_token"];
+    [params setObject:kGetUserId forKey:@"uid"];
+    
+    [YeHttp GetURL:Url(API_User_Info) Params:params Success:^(id responseData) {
+        
+        UserModel *model = [UserModel yy_modelWithDictionary:responseData];
+        NSString *name = model.name;
+        //创建button
+        NSDictionary *attributes = @{
+                                     NSFontAttributeName:[UIFont systemFontOfSize:14],
+                                     };
+        CGFloat width = [name boundingRectWithSize:CGSizeMake(320, 2000) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size.width;
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, width, 30)];
+        [button setTitle:name forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(titleButton:) forControlEvents:UIControlEventTouchUpInside];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self titleView:button];
+//            [self.navigationItem setTitleView:button];
+//            [self.navigationController setNeedsStatusBarAppearanceUpdate];
+        });
+        
+    } Faile:^(NSError *error) {
+        
+    }];
+}
 
 #pragma mark - 懒加载
-
 - (void)loadData {
     
-//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:API_Firends]];
-//    
-//    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-//        NSLog(@"%@",response);
-//        NSLog(@"%@",responseObject);
-//    }];
-//    [dataTask resume];
-    
-    
-    
-    
-    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:kWeiboToken];
+    if (!kGetToken) {
+        return;
+    }
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    [params setObject:token forKey:@"access_token"];
-    [params setObject:@"10" forKey:@"count"];
+    [params setObject:kGetToken forKey:@"access_token"];
+    [params setObject:@"3" forKey:@"count"];
     
-//    [WBHttpRequest requestWithURL:API_Firends httpMethod:@"GET" params:params delegate:self withTag:@"hello"];
-    [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:API_Firends parameters:params error:nil];
+    NSMutableArray *modelArray = [[NSMutableArray alloc] init];
+    
+    [YeHttp GetURL:Url(API_Firends) Params:params Success:^(id responseData) {
+        
+        NSArray *array = [[NSArray alloc] initWithArray:responseData[@"statuses"]];
+        
+        for (NSDictionary *dic in array) {
+            HomeModel *model = [HomeModel yy_modelWithDictionary:dic];
+            HomeLayout *layout = [[HomeLayout alloc] initWithModel:model];
+            [modelArray addObject:layout];
+        }
+        
+    } Faile:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
     
 }
 
-- (void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error {
-    
-}
 
-- (void)request:(WBHttpRequest *)request didReceiveResponse:(NSURLResponse *)response {
-    
-    
-    
-}
-
-- (void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result {
-    
-}
-
-- (void)request:(WBHttpRequest *)request didFinishLoadingWithDataResult:(NSData *)data {
-    NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
-    NSJSONSerialization *jsonstr = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    
-    NSLog(@"%@",str);
-}
 
 /*
 

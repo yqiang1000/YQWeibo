@@ -65,14 +65,17 @@
         WBAuthorizeResponse *authorizeResponse = (WBAuthorizeResponse *)response;
         self.wbtoken = [authorizeResponse accessToken];
         self.wbCurrentUserID = [authorizeResponse userID];
-        
+        self.wbRefreshToken = [authorizeResponse refreshToken];
         //存到本地
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        
-        [userDefaults setObject:self.wbtoken forKey:kWeiboToken];
-        [userDefaults setObject:self.wbCurrentUserID forKey:kCurrentUserID];
+        NSMutableDictionary *weiboDic = [[NSMutableDictionary alloc] init];
+        [weiboDic setObject:self.wbtoken forKey:kWeiboToken];
+        [weiboDic setObject:self.wbCurrentUserID forKey:kWeiboUserId];
+        [weiboDic setObject:self.wbRefreshToken forKey:kWeiboRefreshToken];
+        [userDefaults setObject:weiboDic forKey:kWeiboDictionary];
         
         [userDefaults synchronize];
+        
     }
     
 }
