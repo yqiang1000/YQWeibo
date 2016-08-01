@@ -50,10 +50,21 @@
         }
     }
     
-    NSArray *color = @[[UIColor redColor],[UIColor orangeColor],[UIColor blueColor],[UIColor yellowColor],[UIColor blackColor]];
-    NSArray *images = @[
-                        @"timeline_relationship_icon_addattention@3x.png",
-                        ];
+    NSArray *heightArray = @[@"tabbar_home_highlighted",
+                             @"tabbar_message_highlighted",
+                             @"compose_pic_add_highlighted",
+                             @"tabbar_discover_highlighted",
+                             @"tabbar_more_highlighted"];
+    NSArray *normalArray = @[@"tabbar_home",
+                             @"tabbar_message",
+                             @"compose_pic_add",
+                             @"tabbar_discover",
+                             @"tabbar_more",];
+    NSArray *selectArray = @[@"tabbar_home_selected",
+                             @"tabbar_message_selected",
+                             @"compose_pic_add",
+                             @"tabbar_discover_selected",
+                             @"tabbar_more_selected",];
     
     //add new
     CGFloat Bw = kScreenWidth / 5;
@@ -61,7 +72,13 @@
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i * Bw, 0, Bw, 49)];
         button.tag = i;
         [button addTarget:self action:@selector(selectAction:) forControlEvents:UIControlEventTouchUpInside];
-        button.backgroundColor = color[i];
+        UIImage *image = kImage(normalArray[i]);
+        [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
+        image = kImage(heightArray[i]);
+        [button setBackgroundImage:image forState:UIControlStateHighlighted];
+        image = kImage(selectArray[i]);
+        [button setBackgroundImage:image forState:UIControlStateSelected];
         [self.tabBar addSubview:button];
     }
     

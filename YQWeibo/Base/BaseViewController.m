@@ -22,10 +22,6 @@
 }
 
 - (void)titleView:(UIView *)view {
-//    if ([view isKindOfClass:[UIButton class]]) {
-//        UIButton *button = []
-//        UIView *titleView = [UIView alloc] initWithFrame:
-//    }
     [self.navigationItem setTitleView:view];
 }
 

@@ -31,15 +31,21 @@
 - (void)initUI {
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
     [button addTarget:self action:@selector(loadData) forControlEvents:UIControlEventTouchUpInside];
-    button.backgroundColor = [UIColor whiteColor];
+    button.backgroundColor = [UIColor redColor];
     [self.view addSubview:button];
     
     //设置导航栏
     [self setNavi];
+    
+    [self setTableView];
 }
 
 #pragma mark - View(页面处理)
-
+- (void)setTableView {
+    _tableView = [[HomeTableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64-49) style:UITableViewStylePlain];
+    [self.view addSubview:_tableView];
+    
+}
 
 #pragma mark - XXXDelegate
 
@@ -72,10 +78,9 @@
         [button setTitle:name forState:UIControlStateNormal];
         [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(titleButton:) forControlEvents:UIControlEventTouchUpInside];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [self titleView:button];
-//            [self.navigationItem setTitleView:button];
-//            [self.navigationController setNeedsStatusBarAppearanceUpdate];
         });
         
     } Faile:^(NSError *error) {
