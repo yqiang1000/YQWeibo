@@ -1,21 +1,22 @@
 //
-//  SearchViewController.m
+//  DiscoverViewController.m
 //  YQWeibo
 //
-//  Created by WeibaYeQiang on 16/7/26.
+//  Created by WeibaYeQiang on 16/8/2.
 //  Copyright © 2016年 YQ. All rights reserved.
 //
 
-#import "SearchViewController.h"
+#import "DiscoverViewController.h"
 
-@interface SearchViewController ()
+@interface DiscoverViewController ()
 
 @end
 
-@implementation SearchViewController
+@implementation DiscoverViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = @"发现";
     self.view.backgroundColor = [UIColor grayColor];
 }

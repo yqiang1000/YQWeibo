@@ -27,7 +27,7 @@
 
 - (void)setNavi {
     
-    NSArray *names = @[@"Home",@"Message",@"Search",@"Me"];
+    NSArray *names = @[@"Home",@"Message",@"Discover",@"Me"];
     NSMutableArray *navis = [[NSMutableArray alloc] initWithCapacity:4];
     
     for (NSInteger i = 0 ; i < names.count; i++) {
