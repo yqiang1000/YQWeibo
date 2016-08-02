@@ -44,7 +44,6 @@
 - (void)setTableView {
     _tableView = [[HomeTableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64-49) style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
-    
 }
 
 #pragma mark - XXXDelegate

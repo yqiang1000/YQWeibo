@@ -10,8 +10,9 @@
 #import "BaseNavigationController.h"
 #import "UIStoryboard+LoadViewController.h"
 #import "MenuViewController.h"
+#import "YeTabBar.h"
 
-@interface BaseTabBarController ()
+@interface BaseTabBarController ()<YeTabBarDelegate>
 
 @end
 
@@ -33,7 +34,6 @@
         
         BaseNavigationController *navi = (BaseNavigationController *)[UIStoryboard NavigationControllerWithBoundle:nil WithStoryBoard:names[i] WithIdentifier:nil];
         [navis addObject:navi];
-        
     }
     
     self.viewControllers = navis;
@@ -42,70 +42,41 @@
 
 //reset tabBar
 - (void)resetTabBar {
-    //move old
-    for (UIView *view in self.tabBar.subviews) {
-        Class class = NSClassFromString(@"UITabBarButton");
-        if ([view isKindOfClass:class]) {
-            [view removeFromSuperview];
-        }
-    }
     
-    NSArray *heightArray = @[@"tabbar_home_highlighted",
-                             @"tabbar_message_highlighted",
-                             @"compose_pic_add_highlighted",
-                             @"tabbar_discover_highlighted",
-                             @"tabbar_more_highlighted"];
     NSArray *normalArray = @[@"tabbar_home",
-                             @"tabbar_message",
-                             @"compose_pic_add",
+                             @"tabbar_message_center",
                              @"tabbar_discover",
-                             @"tabbar_more",];
+                             @"tabbar_profile",];
     NSArray *selectArray = @[@"tabbar_home_selected",
-                             @"tabbar_message_selected",
-                             @"compose_pic_add",
+                             @"tabbar_message_center_selected",
                              @"tabbar_discover_selected",
-                             @"tabbar_more_selected",];
+                             @"tabbar_profile_selected"];
     
-    //add new
-    CGFloat Bw = kScreenWidth / 5;
-    for (NSInteger i = 0; i < 5; i++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i * Bw, 0, Bw, 49)];
-        button.tag = i;
-        [button addTarget:self action:@selector(selectAction:) forControlEvents:UIControlEventTouchUpInside];
-        UIImage *image = kImage(normalArray[i]);
-        [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        [button setBackgroundImage:image forState:UIControlStateNormal];
-        image = kImage(heightArray[i]);
-        [button setBackgroundImage:image forState:UIControlStateHighlighted];
-        image = kImage(selectArray[i]);
-        [button setBackgroundImage:image forState:UIControlStateSelected];
-        [self.tabBar addSubview:button];
+    NSArray *array = @[@"首页",@"消息",@"发现",@"我",];
+    
+    /**
+     *  给tabBarItem赋值
+     */
+    [UITabBar appearance].tintColor = [UIColor colorWithRed:253/255.0 green:109/255.0 blue:9/255.0 alpha:1];
+    for (int i = 0; i < array.count; i++) {
+        UITabBarItem *barItem = self.tabBar.items[i];
+        [barItem setImage:[UIImage imageNamed:normalArray[i]]];
+        UIImage *image = [UIImage imageNamed:selectArray[i]];
+        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [barItem setSelectedImage:image];
+        [barItem setTitle:array[i]];
     }
     
+    YeTabBar *yeTabBar = [[YeTabBar alloc] initWithFrame:self.view.frame];
+    yeTabBar.yedelegate = self;
+    [self setValue:yeTabBar forKey:@"tabBar"];
+
 }
 
-- (void)selectAction:(UIButton *)button {
-    NSInteger index = self.selectedIndex;
-    if (button.tag < 3) {
-        if (button.tag != 2) {
-            index = button.tag;
-        } else {
-            //present send message
-            [self presentMenuVC];
-        }
-        
-    } else {
-        index = button.tag - 1;
-    }
-    NSLog(@"select === %ld",index);
-    self.selectedIndex = index;
-}
-
-- (void)presentMenuVC {
+- (void)presentViewController {
     MenuViewController *meunVC = [[MenuViewController alloc] init];
     [self presentViewController:meunVC animated:YES completion:nil];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

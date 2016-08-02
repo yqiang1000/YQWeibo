@@ -27,6 +27,7 @@
 		B82785941D4717D00046782B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785931D4717D00046782B /* CoreGraphics.framework */; };
 		B82785961D4717D90046782B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785951D4717D90046782B /* libz.tbd */; };
 		B82785981D4717E20046782B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785971D4717E20046782B /* libsqlite3.tbd */; };
+		B88CC61D1D50367E00B2E6C9 /* YeTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B88CC61C1D50367E00B2E6C9 /* YeTabBar.m */; };
 		B8D012C61D49F3AB00F20C83 /* YeHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D012C51D49F3AB00F20C83 /* YeHttp.m */; };
 		B8DFEB4B1D4B09F800C50899 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DFEB491D4B09F800C50899 /* MessageCell.m */; };
 		B8DFEB4C1D4B09F800C50899 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8DFEB4A1D4B09F800C50899 /* MessageCell.xib */; };
@@ -51,7 +52,6 @@
 		B8F5073F1D4EF2E20081CB9C /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F5073D1D4EF2E20081CB9C /* HomeCell.m */; };
 		B8F507401D4EF2E20081CB9C /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8F5073E1D4EF2E20081CB9C /* HomeCell.xib */; };
 		B8F507431D4EF67A0081CB9C /* HomeTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F507421D4EF67A0081CB9C /* HomeTableView.m */; };
-		B8F507491D4F2A0A0081CB9C /* TabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F507481D4F2A0A0081CB9C /* TabBarButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +111,8 @@
 		B82785931D4717D00046782B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B82785951D4717D90046782B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B82785971D4717E20046782B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		B88CC61B1D50367E00B2E6C9 /* YeTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YeTabBar.h; sourceTree = "<group>"; };
+		B88CC61C1D50367E00B2E6C9 /* YeTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YeTabBar.m; sourceTree = "<group>"; };
 		B8D012C41D49F3AB00F20C83 /* YeHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YeHttp.h; sourceTree = "<group>"; };
 		B8D012C51D49F3AB00F20C83 /* YeHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YeHttp.m; sourceTree = "<group>"; };
 		B8DFEB481D4B09F800C50899 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
@@ -153,8 +155,6 @@
 		B8F5073E1D4EF2E20081CB9C /* HomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		B8F507411D4EF67A0081CB9C /* HomeTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableView.h; sourceTree = "<group>"; };
 		B8F507421D4EF67A0081CB9C /* HomeTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableView.m; sourceTree = "<group>"; };
-		B8F507471D4F2A0A0081CB9C /* TabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarButton.h; sourceTree = "<group>"; };
-		B8F507481D4F2A0A0081CB9C /* TabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarButton.m; sourceTree = "<group>"; };
 		FEC2A9639837CF5BF67A9F0C /* libPods-YQWeibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YQWeibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -341,8 +341,6 @@
 		B8EB5B091D4730E700F93E63 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B8F507471D4F2A0A0081CB9C /* TabBarButton.h */,
-				B8F507481D4F2A0A0081CB9C /* TabBarButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -547,6 +545,8 @@
 				B8EB5B431D47323100F93E63 /* UIStoryboard+LoadViewController.m */,
 				B8D012C41D49F3AB00F20C83 /* YeHttp.h */,
 				B8D012C51D49F3AB00F20C83 /* YeHttp.m */,
+				B88CC61B1D50367E00B2E6C9 /* YeTabBar.h */,
+				B88CC61C1D50367E00B2E6C9 /* YeTabBar.m */,
 			);
 			path = YeTool;
 			sourceTree = "<group>";
@@ -763,8 +763,8 @@
 				B8DFEB551D4B3B6600C50899 /* HomeModel.m in Sources */,
 				B8EB5B381D4731E500F93E63 /* MeViewController.m in Sources */,
 				B8EB5B241D47313300F93E63 /* BaseNavigationController.m in Sources */,
-				B8F507491D4F2A0A0081CB9C /* TabBarButton.m in Sources */,
 				B8F507431D4EF67A0081CB9C /* HomeTableView.m in Sources */,
+				B88CC61D1D50367E00B2E6C9 /* YeTabBar.m in Sources */,
 				B8DFEB521D4B0A7D00C50899 /* MessageModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

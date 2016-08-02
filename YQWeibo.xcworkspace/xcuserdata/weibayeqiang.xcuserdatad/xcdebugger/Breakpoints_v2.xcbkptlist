@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "YQWeibo/Home/HomeViewController.m"
-            timestampString = "491715402.53408"
+            filePath = "YQWeibo/YeTool/UITabBar+ViewController.m"
+            timestampString = "491810459.66869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "-loadData"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "-viewController"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
