@@ -260,7 +260,6 @@
 				B8054D3A1D4616F800D3BA1B /* LaunchScreen.storyboard */,
 				B8054D381D4616F800D3BA1B /* Assets.xcassets */,
 				B8054D3D1D4616F800D3BA1B /* Info.plist */,
-				B8F507461D4F1BFA0081CB9C /* New Group */,
 				B8054D2C1D4616F800D3BA1B /* Supporting Files */,
 			);
 			path = YQWeibo;
@@ -549,13 +548,6 @@
 				B88CC61C1D50367E00B2E6C9 /* YeTabBar.m */,
 			);
 			path = YeTool;
-			sourceTree = "<group>";
-		};
-		B8F507461D4F1BFA0081CB9C /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

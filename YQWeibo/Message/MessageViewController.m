@@ -18,9 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"消息";
-    self.view.backgroundColor = [UIColor whiteColor];
-    
+    [self title:@"消息" color:[UIColor grayColor]];
+
     self.tableView.backgroundColor = [UIColor redColor];
     self.cellHeight = 44 * 1;
     CGRect frame = self.tableView.frame;
@@ -38,7 +37,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return self.cellHeight;
+    return 44;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

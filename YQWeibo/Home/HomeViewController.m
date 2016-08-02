@@ -26,23 +26,25 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setNavi];
+}
 #pragma mark - 初始化
 
 - (void)initUI {
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
-    [button addTarget:self action:@selector(loadData) forControlEvents:UIControlEventTouchUpInside];
-    button.backgroundColor = [UIColor redColor];
-    [self.view addSubview:button];
-    
-    //设置导航栏
-    [self setNavi];
-    
     [self setTableView];
 }
 
 #pragma mark - View(页面处理)
 - (void)setTableView {
-    _tableView = [[HomeTableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight-64-49) style:UITableViewStylePlain];
+    
+    if (!_tableView) {
+        _tableView = [[HomeTableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+    }
+    
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    _tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     [self.view addSubview:_tableView];
 }
 
@@ -60,6 +62,11 @@
 #pragma mark - lazy loading
 - (void)setNavi {
 
+    if (!kGetToken) {
+        [self title:@"首页" color:[UIColor grayColor]];
+        return;
+    }
+    
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:kGetToken forKey:@"access_token"];
     [params setObject:kGetUserId forKey:@"uid"];
@@ -81,12 +88,14 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self titleView:button];
         });
-        
     } Faile:^(NSError *error) {
-        
     }];
 }
 
+- (void)endRefresh {
+    [_tableView.mj_footer endRefreshing];
+    [_tableView.mj_header endRefreshing];
+}
 #pragma mark - 懒加载
 - (void)loadData {
     
@@ -109,9 +118,10 @@
             HomeLayout *layout = [[HomeLayout alloc] initWithModel:model];
             [modelArray addObject:layout];
         }
-        
+        [self endRefresh];
     } Faile:^(NSError *error) {
         NSLog(@"%@",error);
+        [self endRefresh];
     }];
     
 }

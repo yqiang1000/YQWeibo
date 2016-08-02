@@ -16,21 +16,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"我";
+    [self title:@"我" color:[UIColor grayColor]];
 }
 
 - (IBAction)registAction:(UIButton *)sender {
-    
+    NSLog(@"注册");
 }
 
 - (IBAction)loginInAction:(UIButton *)sender {
     
-    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-    request.redirectURI = kRedirectURL;
-    request.scope = @"all";
-    [WeiboSDK sendRequest:request];
-    
+    [self login];
+//    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
+//    request.redirectURI = kRedirectURL;
+//    request.scope = @"all";
+//    [WeiboSDK sendRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -66,6 +66,10 @@
         self.wbtoken = [authorizeResponse accessToken];
         self.wbCurrentUserID = [authorizeResponse userID];
         self.wbRefreshToken = [authorizeResponse refreshToken];
+        
+        if (!self.wbtoken) {
+            return;
+        }
         //存到本地
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         NSMutableDictionary *weiboDic = [[NSMutableDictionary alloc] init];

@@ -11,5 +11,7 @@
 @interface BaseViewController : UIViewController
 
 - (void)titleView:(UIView *)view;
+- (void)title:(NSString *)title color:(UIColor *)color;
+- (void)login;
 
 @end
