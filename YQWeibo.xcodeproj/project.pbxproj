@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D180C6B20AEB58E7C22571E /* libPods-YQWeibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEC2A9639837CF5BF67A9F0C /* libPods-YQWeibo.a */; };
 		B8054D2E1D4616F800D3BA1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8054D2D1D4616F800D3BA1B /* main.m */; };
 		B8054D311D4616F800D3BA1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8054D301D4616F800D3BA1B /* AppDelegate.m */; };
 		B8054D391D4616F800D3BA1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8054D381D4616F800D3BA1B /* Assets.xcassets */; };
@@ -27,10 +26,12 @@
 		B82785941D4717D00046782B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785931D4717D00046782B /* CoreGraphics.framework */; };
 		B82785961D4717D90046782B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785951D4717D90046782B /* libz.tbd */; };
 		B82785981D4717E20046782B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785971D4717E20046782B /* libsqlite3.tbd */; };
+		B832F1E41D51CA7E008DD2B1 /* ZhouDate.m in Sources */ = {isa = PBXBuildFile; fileRef = B832F1E31D51CA7E008DD2B1 /* ZhouDate.m */; };
 		B88CC61D1D50367E00B2E6C9 /* YeTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B88CC61C1D50367E00B2E6C9 /* YeTabBar.m */; };
 		B8D012C61D49F3AB00F20C83 /* YeHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D012C51D49F3AB00F20C83 /* YeHttp.m */; };
 		B8D4FA0B1D50756900CF625A /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8D4FA0A1D50756900CF625A /* Discover.storyboard */; };
 		B8D4FA0E1D50758200CF625A /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D4FA0D1D50758200CF625A /* DiscoverViewController.m */; };
+		B8D4FA171D50AA0000CF625A /* libPods-YQWeibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D4FA161D50AA0000CF625A /* libPods-YQWeibo.a */; };
 		B8DFEB4B1D4B09F800C50899 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DFEB491D4B09F800C50899 /* MessageCell.m */; };
 		B8DFEB4C1D4B09F800C50899 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8DFEB4A1D4B09F800C50899 /* MessageCell.xib */; };
 		B8DFEB521D4B0A7D00C50899 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DFEB511D4B0A7D00C50899 /* MessageModel.m */; };
@@ -111,6 +112,8 @@
 		B82785931D4717D00046782B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B82785951D4717D90046782B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B82785971D4717E20046782B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		B832F1E21D51CA7E008DD2B1 /* ZhouDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhouDate.h; sourceTree = "<group>"; };
+		B832F1E31D51CA7E008DD2B1 /* ZhouDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhouDate.m; sourceTree = "<group>"; };
 		B88CC61B1D50367E00B2E6C9 /* YeTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YeTabBar.h; sourceTree = "<group>"; };
 		B88CC61C1D50367E00B2E6C9 /* YeTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YeTabBar.m; sourceTree = "<group>"; };
 		B8D012C41D49F3AB00F20C83 /* YeHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YeHttp.h; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 		B8D4FA0A1D50756900CF625A /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		B8D4FA0C1D50758200CF625A /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
 		B8D4FA0D1D50758200CF625A /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
+		B8D4FA161D50AA0000CF625A /* libPods-YQWeibo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-YQWeibo.a"; path = "Pods/../build/Debug-iphoneos/libPods-YQWeibo.a"; sourceTree = "<group>"; };
 		B8DFEB481D4B09F800C50899 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
 		B8DFEB491D4B09F800C50899 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		B8DFEB4A1D4B09F800C50899 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
@@ -174,8 +178,8 @@
 				B82785881D4717970046782B /* SystemConfiguration.framework in Frameworks */,
 				B82785861D47178D0046782B /* ImageIO.framework in Frameworks */,
 				B82785841D4717850046782B /* QuartzCore.framework in Frameworks */,
-				3D180C6B20AEB58E7C22571E /* libPods-YQWeibo.a in Frameworks */,
 				B82785811D4717250046782B /* libWeiboSDK.a in Frameworks */,
+				B8D4FA171D50AA0000CF625A /* libPods-YQWeibo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +203,7 @@
 		339E70E265E38DF8CFB42688 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B8D4FA161D50AA0000CF625A /* libPods-YQWeibo.a */,
 				B82785971D4717E20046782B /* libsqlite3.tbd */,
 				B82785951D4717D90046782B /* libz.tbd */,
 				B82785931D4717D00046782B /* CoreGraphics.framework */,
@@ -540,6 +545,8 @@
 		B8EB5B281D47315F00F93E63 /* YeTool */ = {
 			isa = PBXGroup;
 			children = (
+				B832F1E21D51CA7E008DD2B1 /* ZhouDate.h */,
+				B832F1E31D51CA7E008DD2B1 /* ZhouDate.m */,
 				B8EB5B421D47323100F93E63 /* UIStoryboard+LoadViewController.h */,
 				B8EB5B431D47323100F93E63 /* UIStoryboard+LoadViewController.m */,
 				B8D012C41D49F3AB00F20C83 /* YeHttp.h */,
@@ -753,6 +760,7 @@
 				B8D012C61D49F3AB00F20C83 /* YeHttp.m in Sources */,
 				B8DFEB551D4B3B6600C50899 /* HomeModel.m in Sources */,
 				B8EB5B381D4731E500F93E63 /* MeViewController.m in Sources */,
+				B832F1E41D51CA7E008DD2B1 /* ZhouDate.m in Sources */,
 				B8D4FA0E1D50758200CF625A /* DiscoverViewController.m in Sources */,
 				B8EB5B241D47313300F93E63 /* BaseNavigationController.m in Sources */,
 				B8F507431D4EF67A0081CB9C /* HomeTableView.m in Sources */,
@@ -895,6 +903,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/libWeiboSDK",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -940,6 +949,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/libWeiboSDK",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

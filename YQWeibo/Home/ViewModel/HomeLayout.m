@@ -31,13 +31,7 @@
 }
 
 - (void)initFrame {
-    /**
-     @property (assign, nonatomic) CGRect frame; //整个微博
-     @property (assign, nonatomic) CGRect textFrame; //发表文字
-     @property (assign, nonatomic) CGRect reTextFrame; //转发的文字
-     @property (assign, nonatomic) CGRect imageFrame; //微博图片
-     */
-    
+
     /**
      @property (copy, nonatomic) NSString *idstr; //字符串型的用户UID
      @property (copy, nonatomic) NSString *screen_name; //用户昵称
@@ -66,6 +60,22 @@
      @property (copy, nonatomic) NSString *lang; //用户当前的语言版本，zh-cn：简体中文，zh-tw：繁体中文，en：英语
 
      */
+    
+    
+    self.frame = CGRectMake(0, 0, kScreenWidth, 0);
+    self.profileImageFrame = CGRectMake(5, 5, 50, 50);
+    
+    
+    CGFloat nameW = [_userModel.screen_name boundingRectWithSize:CGSizeMake(kScreenWidth - 60, 30) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.width;
+    self.nameFrame = CGRectMake(60, 5, nameW, 30);
+    
+    NSString *data = [ZhouDate weiboTime:_homeModel.created_at];
+    NSString *sourceStr = [NSString stringWithFormat:@"%@ %@",data,_homeModel.source];
+    CGFloat sourceW = [sourceStr boundingRectWithSize:CGSizeMake(kScreenWidth - 60, 30) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil].size.width;
+    self.sourceFrame = CGRectMake(60, 35, sourceW, 20);
+    
+    
+    
     
     
 }

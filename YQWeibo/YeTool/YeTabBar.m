@@ -34,7 +34,7 @@
 //修改TabBar，调整位置
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     CGFloat w = self.bounds.size.width / 5;
     CGFloat h = self.bounds.size.height;
     int i = 0;
@@ -50,7 +50,7 @@
         }
     }
     self.addButton.center = CGPointMake(kScreenWidth / 2, h / 2);
-    
+
 }
 
 //点击弹出 MenuVC
