@@ -33,21 +33,19 @@
 #pragma mark - 初始化
 
 - (void)initUI {
-    [self setTableView];
-}
-
-#pragma mark - View(页面处理)
-- (void)setTableView {
-    
-    if (!_tableView) {
-        _tableView = [[HomeTableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
-    }
-    
-    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
-    _tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
     [self.view addSubview:_tableView];
 }
 
+#pragma mark - View(页面处理)
+
+- (HomeTableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[HomeTableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+    }
+    return _tableView;
+}
 #pragma mark - XXXDelegate
 
 
@@ -105,7 +103,7 @@
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:kGetToken forKey:@"access_token"];
-    [params setObject:@"10" forKey:@"count"];
+    [params setObject:@"3" forKey:@"count"];
     
     NSMutableArray *modelArray = [[NSMutableArray alloc] init];
     
@@ -118,6 +116,7 @@
             HomeLayout *layout = [[HomeLayout alloc] initWithModel:model];
             [modelArray addObject:layout];
         }
+        self.tableView.data = modelArray;
         [self endRefresh];
     } Faile:^(NSError *error) {
         NSLog(@"%@",error);

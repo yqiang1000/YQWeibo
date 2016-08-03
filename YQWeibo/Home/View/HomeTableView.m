@@ -7,7 +7,7 @@
 //
 
 #import "HomeTableView.h"
-#import "HomeCell.h"
+#import "HomeCell2.h"
 
 @implementation HomeTableView
 
@@ -20,23 +20,34 @@
     return self;
 }
 
+- (void)setData:(NSArray *)data {
+    if (_data != data) {
+        _data = data;
+        [self reloadData];
+    }
+
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return _data.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 200;
+    HomeLayout *homelayout = _data[indexPath.row];
+    CGFloat h = homelayout.frame.size.height;
+    return h;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"homeCell";
-    HomeCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    static NSString *identifier = @"homeCell2";
+    HomeCell2 *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"HomeCell" owner:self options:nil] lastObject];
+        cell = [[HomeCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.homeLayout = _data[indexPath.row];
     }
     return cell;
 }

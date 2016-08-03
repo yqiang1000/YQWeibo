@@ -27,6 +27,7 @@
 		B82785961D4717D90046782B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785951D4717D90046782B /* libz.tbd */; };
 		B82785981D4717E20046782B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785971D4717E20046782B /* libsqlite3.tbd */; };
 		B832F1E41D51CA7E008DD2B1 /* ZhouDate.m in Sources */ = {isa = PBXBuildFile; fileRef = B832F1E31D51CA7E008DD2B1 /* ZhouDate.m */; };
+		B832F1E71D51F741008DD2B1 /* HomeCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = B832F1E61D51F741008DD2B1 /* HomeCell2.m */; };
 		B88CC61D1D50367E00B2E6C9 /* YeTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B88CC61C1D50367E00B2E6C9 /* YeTabBar.m */; };
 		B8D012C61D49F3AB00F20C83 /* YeHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D012C51D49F3AB00F20C83 /* YeHttp.m */; };
 		B8D4FA0B1D50756900CF625A /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8D4FA0A1D50756900CF625A /* Discover.storyboard */; };
@@ -114,6 +115,8 @@
 		B82785971D4717E20046782B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		B832F1E21D51CA7E008DD2B1 /* ZhouDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhouDate.h; sourceTree = "<group>"; };
 		B832F1E31D51CA7E008DD2B1 /* ZhouDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhouDate.m; sourceTree = "<group>"; };
+		B832F1E51D51F741008DD2B1 /* HomeCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCell2.h; sourceTree = "<group>"; };
+		B832F1E61D51F741008DD2B1 /* HomeCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell2.m; sourceTree = "<group>"; };
 		B88CC61B1D50367E00B2E6C9 /* YeTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YeTabBar.h; sourceTree = "<group>"; };
 		B88CC61C1D50367E00B2E6C9 /* YeTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YeTabBar.m; sourceTree = "<group>"; };
 		B8D012C41D49F3AB00F20C83 /* YeHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YeHttp.h; sourceTree = "<group>"; };
@@ -420,6 +423,8 @@
 				B8F5073C1D4EF2E20081CB9C /* HomeCell.h */,
 				B8F5073D1D4EF2E20081CB9C /* HomeCell.m */,
 				B8F5073E1D4EF2E20081CB9C /* HomeCell.xib */,
+				B832F1E51D51F741008DD2B1 /* HomeCell2.h */,
+				B832F1E61D51F741008DD2B1 /* HomeCell2.m */,
 				B8F507411D4EF67A0081CB9C /* HomeTableView.h */,
 				B8F507421D4EF67A0081CB9C /* HomeTableView.m */,
 			);
@@ -764,6 +769,7 @@
 				B8D4FA0E1D50758200CF625A /* DiscoverViewController.m in Sources */,
 				B8EB5B241D47313300F93E63 /* BaseNavigationController.m in Sources */,
 				B8F507431D4EF67A0081CB9C /* HomeTableView.m in Sources */,
+				B832F1E71D51F741008DD2B1 /* HomeCell2.m in Sources */,
 				B88CC61D1D50367E00B2E6C9 /* YeTabBar.m in Sources */,
 				B8DFEB521D4B0A7D00C50899 /* MessageModel.m in Sources */,
 			);

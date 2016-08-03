@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeLayout.h"
+#import "HomeModel.h"
 
 @interface HomeCell : UITableViewCell
+
+@property (strong, nonatomic) HomeLayout *homeLayout;
+@property (strong, nonatomic) HomeModel *homeModel;
 
 @end

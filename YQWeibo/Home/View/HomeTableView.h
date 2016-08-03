@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeLayout.h"
 
 @interface HomeTableView : UITableView<UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic, strong) NSArray *data;
 
 @end

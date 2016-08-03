@@ -41,6 +41,7 @@
 #import "YeHttp.h"
 #import <MJRefresh/MJRefresh.h>
 #import "ZhouDate.h"
+#import <UIImageView+WebCache.h>
 
 #define kSourceRegex @">.+<"
 #define kTopic @"#.+#"
