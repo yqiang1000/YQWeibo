@@ -105,7 +105,7 @@
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:kGetToken forKey:@"access_token"];
-    [params setObject:@"3" forKey:@"count"];
+    [params setObject:@"10" forKey:@"count"];
     
     NSMutableArray *modelArray = [[NSMutableArray alloc] init];
     

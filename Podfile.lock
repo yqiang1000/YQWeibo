@@ -24,6 +24,7 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
+  - RegexKitLite (4.0)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - MJRefresh
   - ReactiveCocoa (= 2.5)
+  - RegexKitLite (~> 4.0)
   - SDWebImage
   - YYModel
 
@@ -44,6 +46,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJRefresh: f3e1228ec3d38c7ba5208d58032631a52f39f495
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  RegexKitLite: c0e4c12e6e7de0769f3a3ed679f0f61604170661
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   YYModel: 4da6b5c42a850e5c81c800de5ba69afe675c6e6f
 

@@ -42,6 +42,10 @@
 #import <MJRefresh/MJRefresh.h>
 #import "ZhouDate.h"
 
+#define kSourceRegex @">.+<"
+#define kTopic @"#.+#"
+
+//接口
 #define Url(UrlStr) [NSString stringWithFormat:@"%@%@.json",BaseUrl,UrlStr]
 #define BaseUrl @"https://api.weibo.com/2/"
 #define API_Firends @"statuses/friends_timeline" //获取关注用户的最新微博

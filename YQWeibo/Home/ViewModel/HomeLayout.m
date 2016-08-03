@@ -69,8 +69,9 @@
     CGFloat nameW = [_userModel.screen_name boundingRectWithSize:CGSizeMake(kScreenWidth - 60, 30) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.width;
     self.nameFrame = CGRectMake(60, 5, nameW, 30);
     
-    NSString *data = [ZhouDate weiboTime:_homeModel.created_at];
-    NSString *sourceStr = [NSString stringWithFormat:@"%@ %@",data,_homeModel.source];
+    NSString *text = @"";
+    NSString *time = [ZhouDate weiboTime:_homeModel.created_at];
+    NSString *sourceStr = [NSString stringWithFormat:@"%@ %@",time,_homeModel.source];
     CGFloat sourceW = [sourceStr boundingRectWithSize:CGSizeMake(kScreenWidth - 60, 30) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil].size.width;
     self.sourceFrame = CGRectMake(60, 35, sourceW, 20);
     

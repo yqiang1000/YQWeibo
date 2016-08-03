@@ -6,4 +6,5 @@ target ‘YQWeibo’ do
 	pod ‘SDWebImage’
 	pod ‘YYModel’
 	pod ‘MJRefresh’
+	pod 'RegexKitLite', '~> 4.0'
 end
