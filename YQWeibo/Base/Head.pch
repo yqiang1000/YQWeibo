@@ -50,7 +50,7 @@
 //接口
 #define Url(UrlStr) [NSString stringWithFormat:@"%@%@.json",BaseUrl,UrlStr]
 #define BaseUrl @"https://api.weibo.com/2/"
-#define API_Firends @"statuses/home_timeline" //获取关注用户的最新微博
+#define API_Home @"statuses/home_timeline" //获取关注用户的最新微博
 #define API_Public @"statuses/public_timeline"	//获取最新的公共微博
 //#define API_Firends @"statuses/friends_timeline" //获取当前登录用户及其所关注用户的最新微博
 //statuses/home_timeline	获取当前登录用户及其所关注用户的最新微博

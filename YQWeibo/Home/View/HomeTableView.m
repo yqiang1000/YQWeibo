@@ -23,8 +23,8 @@
 - (void)setData:(NSArray *)data {
     if (_data != data) {
         _data = data;
-        [self reloadData];
     }
+    [self reloadData];
 
 }
 

@@ -15,6 +15,8 @@
 
 @interface HomeViewController ()<WBHttpRequestDelegate>
 
+@property (nonatomic, strong) NSMutableArray *data;
+
 @end
 
 @implementation HomeViewController
@@ -29,28 +31,25 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setNavi];
+    [self.tableView.header beginRefreshing];
 }
 #pragma mark - 初始化
 
 - (void)initUI {
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
-    self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
+    self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     [self.view addSubview:_tableView];
 }
 
 #pragma mark - View(页面处理)
 
+//单例
 - (HomeTableView *)tableView {
     if (!_tableView) {
         _tableView = [[HomeTableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
     }
     return _tableView;
 }
-#pragma mark - XXXDelegate
-
-
-#pragma mark - 对外接口
-
 
 #pragma mark - private methods(内部接口)
 - (void)titleButton:(UIButton *)button {
@@ -87,6 +86,7 @@
             [self titleView:button];
         });
     } Faile:^(NSError *error) {
+        NSLog(@"失败");
     }];
 }
 
@@ -98,32 +98,68 @@
 - (void)loadData {
     
     if (!kGetToken) {
+        [self endRefresh];
+        return;
+    }
+    _data = [[NSMutableArray alloc] init];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:kGetToken forKey:@"access_token"];
+    [params setObject:@"3" forKey:@"count"];
+    [params setObject:@"0" forKey:@"max_id"];
+    
+    [YeHttp GetURL:Url(API_Home) Params:params Success:^(id responseData) {
+        
+        NSMutableArray *array = [[NSMutableArray alloc] initWithArray:responseData[@"statuses"]];
+
+        for (NSDictionary *dic in array) {
+            HomeModel *model = [HomeModel yy_modelWithDictionary:dic];
+            HomeLayout *layout = [[HomeLayout alloc] initWithModel:model];
+            [_data addObject:layout];
+        }
+        self.tableView.data = _data;
+        [self endRefresh];
+    } Faile:^(NSError *error) {
+        NSLog(@"%@",error);
+        [self endRefresh];
+        
+        NSData *data1 = [error.userInfo objectForKey:@"com.alamofire.serialization.response.error.data"];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data1 options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"%@",dic);
+    }];
+    
+}
+
+
+- (void)loadMoreData {
+    if (!kGetToken) {
+        [self endRefresh];
         return;
     }
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:kGetToken forKey:@"access_token"];
-    [params setObject:@"10" forKey:@"count"];
+    [params setObject:@"3" forKey:@"count"];
+    HomeLayout *lastHomeLayout = [_data lastObject];
+    NSString *maxId = lastHomeLayout.homeModel.idstr;
+    [params setObject:maxId forKey:@"max_id"];
     
-    NSMutableArray *modelArray = [[NSMutableArray alloc] init];
-    
-    [YeHttp GetURL:Url(API_Firends) Params:params Success:^(id responseData) {
-        
-        NSArray *array = [[NSArray alloc] initWithArray:responseData[@"statuses"]];
+    [YeHttp GetURL:Url(API_Home) Params:params Success:^(id responseData) {
+        NSMutableArray *array = [[NSMutableArray alloc] initWithArray:responseData[@"statuses"]];
+        [array removeObjectAtIndex:0];
         
         for (NSDictionary *dic in array) {
             HomeModel *model = [HomeModel yy_modelWithDictionary:dic];
             HomeLayout *layout = [[HomeLayout alloc] initWithModel:model];
-            [modelArray addObject:layout];
+            [_data addObject:layout];
         }
-        self.tableView.data = modelArray;
+        self.tableView.data = _data;
         [self endRefresh];
     } Faile:^(NSError *error) {
-        NSLog(@"%@",error);
         [self endRefresh];
     }];
     
+    
 }
-
 
 @end
