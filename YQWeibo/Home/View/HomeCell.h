@@ -1,8 +1,8 @@
 //
-//  HomeCell.h
+//  HomeCell2.h
 //  YQWeibo
 //
-//  Created by WeibaYeQiang on 16/8/1.
+//  Created by WeibaYeQiang on 16/8/3.
 //  Copyright © 2016年 YQ. All rights reserved.
 //
 
@@ -12,7 +12,13 @@
 
 @interface HomeCell : UITableViewCell
 
+@property (strong, nonatomic) UIImageView *headImageView;
+@property (strong, nonatomic) UILabel *nameLabel;
+@property (strong, nonatomic) UILabel *sourceLabel;
+@property (strong, nonatomic) UILabel *noReTextLabel;
+
 @property (strong, nonatomic) HomeLayout *homeLayout;
-@property (strong, nonatomic) HomeModel *homeModel;
+
+- (void)setHomeLayout:(HomeLayout *)homeLayout;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "HomeTableView.h"
-#import "HomeCell2.h"
+#import "HomeCell.h"
 
 @implementation HomeTableView
 
@@ -44,11 +44,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identifier = @"homeCell2";
-    HomeCell2 *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    HomeCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
-        cell = [[HomeCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        cell.homeLayout = _data[indexPath.row];
+        cell = [[HomeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
+    cell.homeLayout = _data[indexPath.row];
     return cell;
 }
 
