@@ -50,18 +50,24 @@
     self.nameLabel.font = [UIFont systemFontOfSize:15];
     //来源
     self.sourceLabel.frame = _homeLayout.sourceFrame;
-    self.sourceLabel.text = _homeLayout.sourceText;
+    
+    self.sourceLabel.attributedText = _homeLayout.sourceText;
     self.sourceLabel.font = [UIFont systemFontOfSize:15];
-    //正文
-    self.noReTextLabel.frame = _homeLayout.textFrame;
-    self.noReTextLabel.text = _homeModel.text;
-    self.noReTextLabel.font = [UIFont systemFontOfSize:15];
-//    self.noReTextLabel.lineBreakMode = UILineBreakModeCharacterWrap;
-    self.noReTextLabel.numberOfLines = 0;
+    
+    //weiboView
+    self.weiboView.frame = _homeLayout.weiboViewFrame;
+    self.weiboView.homeLayout = _homeLayout;
+    self.weiboView.backgroundColor = [UIColor orangeColor];
+    
+//    //正文
+//    self.noReTextLabel.frame = _homeLayout.textFrame;
+//    self.noReTextLabel.text = _homeModel.text;
+//    self.noReTextLabel.font = [UIFont systemFontOfSize:15];
+//    self.noReTextLabel.numberOfLines = 0;
     [self.contentView addSubview:_headImageView];
     [self.contentView addSubview:_nameLabel];
-    [self.contentView addSubview:_noReTextLabel];
     [self.contentView addSubview:_sourceLabel];
+    [self.contentView addSubview:_weiboView];
     
 }
 
@@ -92,6 +98,13 @@
         _noReTextLabel = [[UILabel alloc] init];
     }
     return _noReTextLabel;
+}
+
+- (WeiboView *)weiboView {
+    if (!_weiboView) {
+        _weiboView = [[WeiboView alloc] init];
+    }
+    return _weiboView;
 }
 
 

@@ -22,7 +22,11 @@
 @property (copy, nonatomic) NSString *original_pic; //原始图片地址，没有时不返回此字段
 @property (assign, nonatomic) NSInteger reposts_count; //转发数
 @property (assign, nonatomic) NSInteger comments_count; //评论数
+@property (copy, nonatomic) NSArray *pic_urls; //多图URL
+
 
 @property (assign, nonatomic) BOOL isRePost; //是否转发
+
+@property (strong, nonatomic) HomeModel *reHomeModel; //转发的微博
 
 @end
