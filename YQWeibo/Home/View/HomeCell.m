@@ -50,24 +50,39 @@
     self.nameLabel.font = [UIFont systemFontOfSize:15];
     //来源
     self.sourceLabel.frame = _homeLayout.sourceFrame;
-    
     self.sourceLabel.attributedText = _homeLayout.sourceText;
     self.sourceLabel.font = [UIFont systemFontOfSize:15];
     
-    //weiboView
-    self.weiboView.frame = _homeLayout.weiboViewFrame;
-    self.weiboView.homeLayout = _homeLayout;
-    self.weiboView.backgroundColor = [UIColor orangeColor];
+    //自己的文字
+    self.textLabel1.frame = _homeLayout.textFrame;
+    self.textLabel1.text = _homeLayout.homeModel.text;
+    self.textLabel1.backgroundColor = [UIColor yellowColor];
+    self.textLabel1.font = [UIFont systemFontOfSize:15];
+    self.textLabel1.numberOfLines = 0;
     
-//    //正文
-//    self.noReTextLabel.frame = _homeLayout.textFrame;
-//    self.noReTextLabel.text = _homeModel.text;
-//    self.noReTextLabel.font = [UIFont systemFontOfSize:15];
-//    self.noReTextLabel.numberOfLines = 0;
+    //转发的文字
+    self.textLabel2.frame = _homeLayout.reTextFrame;
+    self.textLabel2.text = _homeLayout.homeModel.reHomeModel.text;
+    self.textLabel2.backgroundColor = [UIColor redColor];
+    self.textLabel2.numberOfLines = 0;
+    self.textLabel2.font = [UIFont systemFontOfSize:15];
+
+    //图片
+    self.data = nil;
+    if (_homeLayout.homeModel.reHomeModel == nil) {
+        self.data = _homeLayout.homeModel.pic_urls;
+    } else {
+        self.data = _homeLayout.homeModel.reHomeModel.pic_urls;
+    }
+    self.collectionView.data = self.data;
+
     [self.contentView addSubview:_headImageView];
     [self.contentView addSubview:_nameLabel];
     [self.contentView addSubview:_sourceLabel];
-    [self.contentView addSubview:_weiboView];
+    [self.contentView addSubview:_textLabel1];
+    [self.contentView addSubview:_textLabel2];
+    [self.contentView addSubview:_collectionView];
+    
     
 }
 
@@ -93,24 +108,34 @@
     return _sourceLabel;
 }
 
-- (UILabel *)noReTextLabel {
-    if (!_noReTextLabel) {
-        _noReTextLabel = [[UILabel alloc] init];
+- (UILabel *)textLabel1 {
+    if (!_textLabel1) {
+        _textLabel1 = [[UILabel alloc] init];
     }
-    return _noReTextLabel;
+    return _textLabel1;
 }
 
-- (WeiboView *)weiboView {
-    if (!_weiboView) {
-        _weiboView = [[WeiboView alloc] init];
+- (UILabel *)textLabel2 {
+    if (!_textLabel2) {
+        _textLabel2 = [[UILabel alloc] init];
     }
-    return _weiboView;
+    return _textLabel2;
 }
 
+- (UICollectionView *)collectionView {
+    if (!_collectionView) {
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        CGFloat h = (kScreenWidth - 20)/3;
+        [flowLayout setItemSize:CGSizeMake(h,h)];
+        [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        self.collectionView = [[ImageCollectionView alloc] initWithFrame:_homeLayout.imageFrame collectionViewLayout:flowLayout];
+    }
+    return _collectionView;
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 

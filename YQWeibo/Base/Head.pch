@@ -51,12 +51,12 @@
 //接口
 #define Url(UrlStr) [NSString stringWithFormat:@"%@%@.json",BaseUrl,UrlStr]
 #define BaseUrl @"https://api.weibo.com/2/"
-//#define API_Home @"statuses/home_timeline" //获取关注用户的最新微博
+#define API_Home @"statuses/home_timeline" //获取关注用户的最新微博
 #define API_Public @"statuses/public_timeline"	//获取最新的公共微博
 //#define API_Firends @"statuses/friends_timeline" //获取当前登录用户及其所关注用户的最新微博
 //statuses/home_timeline	获取当前登录用户及其所关注用户的最新微博
 //statuses/friends_timeline/ids	获取当前登录用户及其所关注用户的最新微博的ID
-#define API_Home @"statuses/user_timeline" //获取用户发布的微博
+//#define API_Home @"statuses/user_timeline" //获取用户发布的微博
 //statuses/user_timeline/ids	获取用户发布的微博的ID
 //statuses/timeline_batch	批量获取指定的一批用户的微博列表
 //statuses/repost_timeline	返回一条原创微博的最新转发微博

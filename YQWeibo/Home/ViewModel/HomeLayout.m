@@ -58,32 +58,60 @@
     NSArray *array = [_homeModel.source componentsMatchedByRegex:kSourceRegex];
     NSString *str1 = [array firstObject];
     NSString *str2 = [str1 substringWithRange:NSMakeRange(1, str1.length - 2)];
-    NSString *str3 = [NSString stringWithFormat:@"%@ %@",time,str2];
+    NSString *str3 = [NSString stringWithFormat:@"%@ 来自%@",time,str2];
     _sourceText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@",time,str2]];
     [_sourceText addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0, time.length)];
     CGFloat sourceW = [YeLabel getWidth:str3 size:CGSizeMake(kScreenWidth - 60, 30) font:15];
     self.sourceFrame = CGRectMake(60, 35, sourceW, 20);
     
-    //weiboFrame
-//    self.weiboViewFrame = CGRectMake(0, 0, kScreenWidth, 0);
+    //自己的正文
+    CGFloat textH = [YeLabel getHeight:_homeModel.text size:CGSizeMake(kScreenWidth - 10, MAXFLOAT) font:15];
+    self.textFrame = CGRectMake(5, 65, kScreenWidth - 10, textH);
+    
     //转发
-    if (_homeModel.isRePost) {
-        //正文
-        CGFloat textH = [YeLabel getHeight:_homeModel.text size:CGSizeMake(kScreenWidth - 10, MAXFLOAT) font:15];
-        self.textFrame = CGRectMake(5, 60, kScreenWidth - 10, textH);
+    if (_homeModel.reHomeModel != nil) {
         
-        CGFloat frameH = 60 + _textFrame.size.height + 5;
+        //转发的文字
+        CGFloat  reTextH = [YeLabel getHeight:_homeModel.reHomeModel.text size:CGSizeMake(kScreenWidth - 10, MAXFLOAT) font:15];
+        self.reTextFrame = CGRectMake(5, 65 + textH, kScreenWidth - 10, reTextH);
+        
+        //转发的图片
+        NSInteger imageCount = _homeModel.reHomeModel.pic_urls.count;
+        CGFloat imageW = 0;
+        CGFloat imageH = 0;
+        switch (imageCount) {
+            case 0: //无图片
+                imageW = 0;
+                imageH = 0;
+                break;
+            case 1: //一张图
+                imageW = (kScreenWidth - 15)/2.0;
+                imageH = imageW * 1.5;
+                break;
+            default:    //好几张图
+                imageW = (kScreenWidth - 5 * 4) / 3.0;
+                imageH = imageW;
+                break;
+        }
+        
+        
+        NSInteger section = imageCount / 3; //每行三张图，有几行
+        NSInteger row = imageCount % 3;
+        
+        CGFloat h = 65 + _textFrame.size.height + _reTextFrame.size.height;
+        
+        //图片在文字下面
+        if (row == 0) {
+            self.imageFrame = CGRectMake(5, h, kScreenWidth - 10, (imageH + 5) * section);
+        } else {
+            self.imageFrame = CGRectMake(5, h, kScreenWidth - 10 , (imageH + 5) * (section + 1));
+        }
+        
+        CGFloat frameH = h + _imageFrame.size.height + 5;
         self.frame = CGRectMake(0, 0, kScreenWidth, frameH);
         
-        
-        
     } else {
-        //原创
-        //正文
-        CGFloat textH = [YeLabel getHeight:_homeModel.text size:CGSizeMake(kScreenWidth - 10, MAXFLOAT) font:15];
-        self.textFrame = CGRectMake(5, 5, kScreenWidth - 10, textH);
-        
-        //图片
+        //原创图片
         NSInteger imageCount = _homeModel.pic_urls.count;
         CGFloat imageW = 0;
         CGFloat imageH = 0;
@@ -102,21 +130,25 @@
                 break;
         }
         
-        //微博高度 ＝ text ＋ image
+
         NSInteger section = imageCount / 3; //每行三张图，有几行
         NSInteger row = imageCount % 3;
-        if (section < 3 && row) {
-            self.weiboViewFrame = CGRectMake(0, 60 + 5, kScreenWidth, (imageH+5) * section);
+        
+        CGFloat h = 65 + textH + 5;
+        
+        //图片在文字下面
+        if (row == 0) {
+            self.imageFrame = CGRectMake(5, h, kScreenWidth - 10, (imageH + 5) * section);
         } else {
-            self.weiboViewFrame = CGRectMake(0, 60 + 5, kScreenWidth, (imageH+5) * 3);
+            self.imageFrame = CGRectMake(5, h, kScreenWidth - 10, (imageH + 5) * (section + 1));
         }
         
     }
     
-    CGFloat frameH = 60 + 5 + _weiboViewFrame.size.height;
+    //微博高度 ＝ text ＋ image
+    CGFloat frameH = 65 + _textFrame.size.height + _reTextFrame.size.height + _imageFrame.size.height + 5;
     self.frame = CGRectMake(0, 0, kScreenWidth, frameH);
-    
-    
 }
+
 
 @end

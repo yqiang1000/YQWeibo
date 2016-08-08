@@ -28,7 +28,7 @@
 		B82785981D4717E20046782B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B82785971D4717E20046782B /* libsqlite3.tbd */; };
 		B832F1E41D51CA7E008DD2B1 /* ZhouDate.m in Sources */ = {isa = PBXBuildFile; fileRef = B832F1E31D51CA7E008DD2B1 /* ZhouDate.m */; };
 		B832F1E71D51F741008DD2B1 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B832F1E61D51F741008DD2B1 /* HomeCell.m */; };
-		B858FEEA1D54394D00D823F4 /* WeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = B858FEE91D54394D00D823F4 /* WeiboView.m */; };
+		B8444E7F1D5881D400AD1D6D /* ImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8444E7E1D5881D400AD1D6D /* ImageCollectionView.m */; };
 		B858FEED1D546B8E00D823F4 /* WXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B858FEEC1D546B8E00D823F4 /* WXLabel.m */; };
 		B858FEF01D546D0200D823F4 /* YeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B858FEEF1D546D0200D823F4 /* YeLabel.m */; };
 		B858FEF31D54916F00D823F4 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = B858FEF21D54916F00D823F4 /* UIViewExt.m */; };
@@ -119,8 +119,8 @@
 		B832F1E31D51CA7E008DD2B1 /* ZhouDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhouDate.m; sourceTree = "<group>"; };
 		B832F1E51D51F741008DD2B1 /* HomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
 		B832F1E61D51F741008DD2B1 /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
-		B858FEE81D54394D00D823F4 /* WeiboView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboView.h; sourceTree = "<group>"; };
-		B858FEE91D54394D00D823F4 /* WeiboView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboView.m; sourceTree = "<group>"; };
+		B8444E7D1D5881D400AD1D6D /* ImageCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionView.h; sourceTree = "<group>"; };
+		B8444E7E1D5881D400AD1D6D /* ImageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionView.m; sourceTree = "<group>"; };
 		B858FEEB1D546B8E00D823F4 /* WXLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXLabel.h; sourceTree = "<group>"; };
 		B858FEEC1D546B8E00D823F4 /* WXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXLabel.m; sourceTree = "<group>"; };
 		B858FEEE1D546D0200D823F4 /* YeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YeLabel.h; sourceTree = "<group>"; };
@@ -429,10 +429,10 @@
 			children = (
 				B832F1E51D51F741008DD2B1 /* HomeCell.h */,
 				B832F1E61D51F741008DD2B1 /* HomeCell.m */,
-				B858FEE81D54394D00D823F4 /* WeiboView.h */,
-				B858FEE91D54394D00D823F4 /* WeiboView.m */,
 				B8F507411D4EF67A0081CB9C /* HomeTableView.h */,
 				B8F507421D4EF67A0081CB9C /* HomeTableView.m */,
+				B8444E7D1D5881D400AD1D6D /* ImageCollectionView.h */,
+				B8444E7E1D5881D400AD1D6D /* ImageCollectionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -772,6 +772,7 @@
 				B8DFEB5E1D4B45CE00C50899 /* HomeLayout.m in Sources */,
 				B8EB5B3E1D4731F600F93E63 /* MessageViewController.m in Sources */,
 				B858FEF01D546D0200D823F4 /* YeLabel.m in Sources */,
+				B8444E7F1D5881D400AD1D6D /* ImageCollectionView.m in Sources */,
 				B8EB5B441D47323100F93E63 /* UIStoryboard+LoadViewController.m in Sources */,
 				B8EB5B351D4731DC00F93E63 /* HomeViewController.m in Sources */,
 				B8D012C61D49F3AB00F20C83 /* YeHttp.m in Sources */,
@@ -785,7 +786,6 @@
 				B88CC61D1D50367E00B2E6C9 /* YeTabBar.m in Sources */,
 				B858FEF31D54916F00D823F4 /* UIViewExt.m in Sources */,
 				B8DFEB521D4B0A7D00C50899 /* MessageModel.m in Sources */,
-				B858FEEA1D54394D00D823F4 /* WeiboView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

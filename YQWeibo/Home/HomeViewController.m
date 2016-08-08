@@ -105,7 +105,7 @@
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:kGetToken forKey:@"access_token"];
-    [params setObject:@"3" forKey:@"count"];
+    [params setObject:@"10" forKey:@"count"];
     [params setObject:@"0" forKey:@"max_id"];
     
     [YeHttp GetURL:Url(API_Home) Params:params Success:^(id responseData) {
@@ -139,19 +139,21 @@
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:kGetToken forKey:@"access_token"];
-    [params setObject:@"3" forKey:@"count"];
+    [params setObject:@"10" forKey:@"count"];
     HomeLayout *lastHomeLayout = [_data lastObject];
     NSString *maxId = lastHomeLayout.homeModel.idstr;
     [params setObject:maxId forKey:@"max_id"];
     
     [YeHttp GetURL:Url(API_Home) Params:params Success:^(id responseData) {
         NSMutableArray *array = [[NSMutableArray alloc] initWithArray:responseData[@"statuses"]];
-        [array removeObjectAtIndex:0];
-        
-        for (NSDictionary *dic in array) {
-            HomeModel *model = [HomeModel yy_modelWithDictionary:dic];
-            HomeLayout *layout = [[HomeLayout alloc] initWithModel:model];
-            [_data addObject:layout];
+        if (array.count != 0) {
+            [array removeObjectAtIndex:0];
+            for (NSDictionary *dic in array) {
+                HomeModel *model = [HomeModel yy_modelWithDictionary:dic];
+                NSLog(@"max_id = %@",model.idstr);
+                HomeLayout *layout = [[HomeLayout alloc] initWithModel:model];
+                [_data addObject:layout];
+            }
         }
         self.tableView.data = _data;
         [self endRefresh];
