@@ -44,6 +44,8 @@
 #import <UIImageView+WebCache.h>
 #import <Masonry/Masonry.h>
 #import "YeLabel.h"
+#import <Masonry/Masonry.h>
+#import "UIView+FatherController.h"
 
 #define kSourceRegex @">.+<"
 #define kTopic @"#.+#"

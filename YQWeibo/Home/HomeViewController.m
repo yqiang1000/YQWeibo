@@ -150,7 +150,6 @@
             [array removeObjectAtIndex:0];
             for (NSDictionary *dic in array) {
                 HomeModel *model = [HomeModel yy_modelWithDictionary:dic];
-                NSLog(@"max_id = %@",model.idstr);
                 HomeLayout *layout = [[HomeLayout alloc] initWithModel:model];
                 [_data addObject:layout];
             }

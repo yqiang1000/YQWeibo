@@ -33,6 +33,7 @@
 		B858FEF01D546D0200D823F4 /* YeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B858FEEF1D546D0200D823F4 /* YeLabel.m */; };
 		B858FEF31D54916F00D823F4 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = B858FEF21D54916F00D823F4 /* UIViewExt.m */; };
 		B88CC61D1D50367E00B2E6C9 /* YeTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B88CC61C1D50367E00B2E6C9 /* YeTabBar.m */; };
+		B8C5D1B51D5B347D004241D0 /* UIView+FatherController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8C5D1B41D5B347D004241D0 /* UIView+FatherController.m */; };
 		B8D012C61D49F3AB00F20C83 /* YeHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D012C51D49F3AB00F20C83 /* YeHttp.m */; };
 		B8D4FA0B1D50756900CF625A /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8D4FA0A1D50756900CF625A /* Discover.storyboard */; };
 		B8D4FA0E1D50758200CF625A /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D4FA0D1D50758200CF625A /* DiscoverViewController.m */; };
@@ -129,6 +130,8 @@
 		B858FEF21D54916F00D823F4 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		B88CC61B1D50367E00B2E6C9 /* YeTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YeTabBar.h; sourceTree = "<group>"; };
 		B88CC61C1D50367E00B2E6C9 /* YeTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YeTabBar.m; sourceTree = "<group>"; };
+		B8C5D1B31D5B347D004241D0 /* UIView+FatherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FatherController.h"; sourceTree = "<group>"; };
+		B8C5D1B41D5B347D004241D0 /* UIView+FatherController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FatherController.m"; sourceTree = "<group>"; };
 		B8D012C41D49F3AB00F20C83 /* YeHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YeHttp.h; sourceTree = "<group>"; };
 		B8D012C51D49F3AB00F20C83 /* YeHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YeHttp.m; sourceTree = "<group>"; };
 		B8D4FA0A1D50756900CF625A /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
@@ -570,6 +573,8 @@
 				B88CC61C1D50367E00B2E6C9 /* YeTabBar.m */,
 				B858FEEE1D546D0200D823F4 /* YeLabel.h */,
 				B858FEEF1D546D0200D823F4 /* YeLabel.m */,
+				B8C5D1B31D5B347D004241D0 /* UIView+FatherController.h */,
+				B8C5D1B41D5B347D004241D0 /* UIView+FatherController.m */,
 			);
 			path = YeTool;
 			sourceTree = "<group>";
@@ -783,6 +788,7 @@
 				B8EB5B241D47313300F93E63 /* BaseNavigationController.m in Sources */,
 				B8F507431D4EF67A0081CB9C /* HomeTableView.m in Sources */,
 				B832F1E71D51F741008DD2B1 /* HomeCell.m in Sources */,
+				B8C5D1B51D5B347D004241D0 /* UIView+FatherController.m in Sources */,
 				B88CC61D1D50367E00B2E6C9 /* YeTabBar.m in Sources */,
 				B858FEF31D54916F00D823F4 /* UIViewExt.m in Sources */,
 				B8DFEB521D4B0A7D00C50899 /* MessageModel.m in Sources */,

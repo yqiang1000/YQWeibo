@@ -44,6 +44,11 @@
     self.headImageView.layer.masksToBounds = YES;
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_homeLayout.userModel.profile_image_url] placeholderImage:nil];
     
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+    
+    dispatch_async(queue, ^{
+        [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_homeLayout.userModel.profile_image_url] placeholderImage:nil];
+    });
     //名字
     self.nameLabel.frame = _homeLayout.nameFrame;
     self.nameLabel.text = _homeLayout.userModel.screen_name;
@@ -75,18 +80,21 @@
     
     //imageView
     self.view.frame = _homeLayout.imageFrame;
-    _view.backgroundColor = [UIColor orangeColor];
     [self.contentView addSubview:_view];
     
-    _flowLayout = [self flowLayout];
-    self.collectionView = [[ImageCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:_flowLayout];
-    self.collectionView.data = self.data;
-    
-    
+    if (_view.bounds.size.height > 0) {
+        [_collectionView removeFromSuperview];
+        _flowLayout = [self flowLayout];
+        self.collectionView = [[ImageCollectionView alloc] initWithFrame:CGRectMake(0, 0, _view.bounds.size.width, _view.bounds.size.height) collectionViewLayout:_flowLayout];
+        self.collectionView.data = self.data;
+        [self.view addSubview:_collectionView];
+    } else {
+        [_view removeFromSuperview];
+        [_collectionView removeFromSuperview];
+    }
     
     //buttonView
     self.buttonView.frame = _homeLayout.buttonFrame;
-    self.buttonView.backgroundColor = [UIColor yellowColor];
     [self.contentView addSubview:_buttonView];
     
 
@@ -95,9 +103,11 @@
     [self.contentView addSubview:_sourceLabel];
     [self.contentView addSubview:_textLabel1];
     [self.contentView addSubview:_textLabel2];
-    [self.view addSubview:_collectionView];
     
     
+    UIButton *bt1 = [UIButton new];
+    UIButton *bt2 = [UIButton new];
+    UIButton *bt3 = [UIButton new];
 }
 
 //单例
@@ -156,6 +166,7 @@
     }
     return _view;
 }
+
 - (UIView *)buttonView {
     if (!_buttonView) {
         _buttonView = [[UIView alloc] init];
@@ -163,20 +174,11 @@
     return _buttonView;
 }
 
-//- (UICollectionView *)collectionView {
-//    
-//    if (!_collectionView) {
-//        self.collectionView = [[ImageCollectionView alloc] initWithFrame:<#(CGRect)#> collectionViewLayout:<#(nonnull UICollectionViewLayout *)#>];
-//    }
-//    return _collectionView;
-//}
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     
     if (selected) {
-        self.contentView.backgroundColor = [UIColor blueColor];
     } else {
         self.contentView.backgroundColor = [UIColor whiteColor];
     }

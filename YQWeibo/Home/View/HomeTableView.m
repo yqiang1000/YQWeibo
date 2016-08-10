@@ -48,7 +48,7 @@
     if (cell == nil) {
         cell = [[HomeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.homeLayout = _data[indexPath.row];
     return cell;
 }

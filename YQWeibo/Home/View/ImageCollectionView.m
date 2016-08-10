@@ -15,7 +15,7 @@
     if (self) {
         self.dataSource = self;
         self.delegate = self;
-        
+        self.backgroundColor = [UIColor whiteColor];
         [self registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"image"];
     }
     return self;
@@ -44,9 +44,21 @@
 
     NSDictionary *urlDic = [_data objectAtIndex:indexPath.row];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.bounds];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:urlDic[@"thumbnail_pic"]]];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+    dispatch_async(queue, ^{
+        [imageView sd_setImageWithURL:[NSURL URLWithString:urlDic[@"thumbnail_pic"]]];
+    });
     [cell.contentView addSubview:imageView];
     return cell;
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"item = %ld ",indexPath.item);
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    UIViewController *viewC = cell.ViewController;
+    
+}
+
 
 @end
