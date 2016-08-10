@@ -58,15 +58,42 @@
     NSArray *array = [_homeModel.source componentsMatchedByRegex:kSourceRegex];
     NSString *str1 = [array firstObject];
     NSString *str2 = [str1 substringWithRange:NSMakeRange(1, str1.length - 2)];
-    NSString *str3 = [NSString stringWithFormat:@"%@ 来自%@",time,str2];
-    _sourceText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@",time,str2]];
+    _sourceText = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ 来自%@",time,str2]];
     [_sourceText addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0, time.length)];
-    CGFloat sourceW = [YeLabel getWidth:str3 size:CGSizeMake(kScreenWidth - 60, 30) font:15];
-    self.sourceFrame = CGRectMake(60, 35, sourceW, 20);
+    self.sourceFrame = CGRectMake(60, 35, kScreenWidth - 60, 20);
     
     //自己的正文
     CGFloat textH = [YeLabel getHeight:_homeModel.text size:CGSizeMake(kScreenWidth - 10, MAXFLOAT) font:15];
+    
+//    NSString *textStr = _homeModel.text;
+//    self.text = [[NSMutableAttributedString alloc] initWithString:_homeModel.text];
+//    //#话题#
+//    NSString *regex1 = @"#\w+#";
+//    //@用户
+//    NSString *regex2 = @"^@";
+//    //http:url
+//    NSString *regex3 = @"^@";
+//    
+//    NSArray *topics = [textStr componentsMatchedByRegex:kTopic];
+//    
+//    for (NSString *str in topics) {
+//        NSLog(@"%@",str);
+//    }
+//    NSString *emotionPattern = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
+    
+//    // @的规则
+//    NSString *atPattern = @"@[0-9a-zA-Z\\u4e00-\\u9fa5]+";
+//    
+//    // #话题#的规则
+//    NSString *topicPattern = @"#[0-9a-zA-Z\\u4e00-\\u9fa5]+#";
+//    
+//    // url链接的规则
+//    NSString *urlPattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
+    
+    
     self.textFrame = CGRectMake(5, 65, kScreenWidth - 10, textH);
+    
+    
     
     //转发
     if (_homeModel.reHomeModel != nil) {
@@ -77,23 +104,8 @@
         
         //转发的图片
         NSInteger imageCount = _homeModel.reHomeModel.pic_urls.count;
-        CGFloat imageW = 0;
-        CGFloat imageH = 0;
-        switch (imageCount) {
-            case 0: //无图片
-                imageW = 0;
-                imageH = 0;
-                break;
-            case 1: //一张图
-                imageW = (kScreenWidth - 15)/2.0;
-                imageH = imageW * 1.5;
-                break;
-            default:    //好几张图
-                imageW = (kScreenWidth - 5 * 4) / 3.0;
-                imageH = imageW;
-                break;
-        }
-        
+        CGFloat imageW = (kScreenWidth - 5 * 4) / 3.0;
+        CGFloat imageH = imageW;
         
         NSInteger section = imageCount / 3; //每行三张图，有几行
         NSInteger row = imageCount % 3;
@@ -113,24 +125,8 @@
     } else {
         //原创图片
         NSInteger imageCount = _homeModel.pic_urls.count;
-        CGFloat imageW = 0;
-        CGFloat imageH = 0;
-        switch (imageCount) {
-            case 0: //无图片
-                imageW = 0;
-                imageH = 0;
-                break;
-            case 1: //一张图
-                imageW = (kScreenWidth - 15)/2.0;
-                imageH = imageW * 1.5;
-                break;
-            default:    //好几张图
-                imageW = (kScreenWidth - 5 * 4) / 3.0;
-                imageH = imageW;
-                break;
-        }
-        
-
+        CGFloat imageW = (kScreenWidth - 5 * 4) / 3.0;
+        CGFloat imageH = imageW;
         NSInteger section = imageCount / 3; //每行三张图，有几行
         NSInteger row = imageCount % 3;
         
@@ -145,9 +141,13 @@
         
     }
     
+    
     //微博高度 ＝ text ＋ image
-    CGFloat frameH = 65 + _textFrame.size.height + _reTextFrame.size.height + _imageFrame.size.height + 5;
-    self.frame = CGRectMake(0, 0, kScreenWidth, frameH);
+    CGFloat buttonH = 65 + _textFrame.size.height + _reTextFrame.size.height + _imageFrame.size.height + 5;
+    
+    self.buttonFrame = CGRectMake(5, buttonH, kScreenWidth - 10, 40);
+    
+    self.frame = CGRectMake(0, 0, kScreenWidth, buttonH + _buttonFrame.size.height);
 }
 
 

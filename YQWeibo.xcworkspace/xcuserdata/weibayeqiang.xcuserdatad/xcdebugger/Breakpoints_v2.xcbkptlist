@@ -83,29 +83,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "YQWeibo/Home/View/ImageCollectionView.m"
-            timestampString = "492342560.781976"
+            filePath = "YQWeibo/Home/View/HomeCell.m"
+            timestampString = "492417600.14123"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "-collectionView:cellForItemAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YQWeibo/Home/View/ImageCollectionView.m"
-            timestampString = "492342567.824159"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "-initWithFrame:collectionViewLayout:"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-createLayout"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

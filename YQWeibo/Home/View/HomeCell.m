@@ -56,14 +56,12 @@
     //自己的文字
     self.textLabel1.frame = _homeLayout.textFrame;
     self.textLabel1.text = _homeLayout.homeModel.text;
-    self.textLabel1.backgroundColor = [UIColor yellowColor];
     self.textLabel1.font = [UIFont systemFontOfSize:15];
     self.textLabel1.numberOfLines = 0;
     
     //转发的文字
     self.textLabel2.frame = _homeLayout.reTextFrame;
     self.textLabel2.text = _homeLayout.homeModel.reHomeModel.text;
-    self.textLabel2.backgroundColor = [UIColor redColor];
     self.textLabel2.numberOfLines = 0;
     self.textLabel2.font = [UIFont systemFontOfSize:15];
 
@@ -74,14 +72,30 @@
     } else {
         self.data = _homeLayout.homeModel.reHomeModel.pic_urls;
     }
+    
+    //imageView
+    self.view.frame = _homeLayout.imageFrame;
+    _view.backgroundColor = [UIColor orangeColor];
+    [self.contentView addSubview:_view];
+    
+    _flowLayout = [self flowLayout];
+    self.collectionView = [[ImageCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:_flowLayout];
     self.collectionView.data = self.data;
+    
+    
+    
+    //buttonView
+    self.buttonView.frame = _homeLayout.buttonFrame;
+    self.buttonView.backgroundColor = [UIColor yellowColor];
+    [self.contentView addSubview:_buttonView];
+    
 
     [self.contentView addSubview:_headImageView];
     [self.contentView addSubview:_nameLabel];
     [self.contentView addSubview:_sourceLabel];
     [self.contentView addSubview:_textLabel1];
     [self.contentView addSubview:_textLabel2];
-    [self.contentView addSubview:_collectionView];
+    [self.view addSubview:_collectionView];
     
     
 }
@@ -122,20 +136,51 @@
     return _textLabel2;
 }
 
-- (UICollectionView *)collectionView {
-    if (!_collectionView) {
-        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        CGFloat h = (kScreenWidth - 20)/3;
-        [flowLayout setItemSize:CGSizeMake(h,h)];
-        [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-        self.collectionView = [[ImageCollectionView alloc] initWithFrame:_homeLayout.imageFrame collectionViewLayout:flowLayout];
+- (UICollectionViewFlowLayout *)flowLayout {
+    
+    if (!_flowLayout) {
+        _flowLayout = [[UICollectionViewFlowLayout alloc] init];
     }
-    return _collectionView;
+    
+    CGFloat h = (kScreenWidth - 20)/3;
+    [_flowLayout setItemSize:CGSizeMake(h - 5, h - 5)];
+    [_flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    _flowLayout.sectionInset = UIEdgeInsetsMake(5, 0, 5, 0);
+    return _flowLayout;
+    
 }
+
+- (UIView *)view {
+    if (!_view) {
+        _view = [[UIView alloc] init];
+    }
+    return _view;
+}
+- (UIView *)buttonView {
+    if (!_buttonView) {
+        _buttonView = [[UIView alloc] init];
+    }
+    return _buttonView;
+}
+
+//- (UICollectionView *)collectionView {
+//    
+//    if (!_collectionView) {
+//        self.collectionView = [[ImageCollectionView alloc] initWithFrame:<#(CGRect)#> collectionViewLayout:<#(nonnull UICollectionViewLayout *)#>];
+//    }
+//    return _collectionView;
+//}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+    
+    if (selected) {
+        self.contentView.backgroundColor = [UIColor blueColor];
+    } else {
+        self.contentView.backgroundColor = [UIColor whiteColor];
+    }
+    
     // Configure the view for the selected state
 }
 

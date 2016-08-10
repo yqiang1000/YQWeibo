@@ -21,6 +21,7 @@
     return self;
 }
 
+
 - (void)setData:(NSArray *)data {
     if (_data != data) {
         _data = data;
@@ -40,7 +41,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identifier = @"image";
     UICollectionViewCell *cell = (UICollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor lightGrayColor];
+
+    NSDictionary *urlDic = [_data objectAtIndex:indexPath.row];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.bounds];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:urlDic[@"thumbnail_pic"]]];
+    [cell.contentView addSubview:imageView];
     return cell;
 }
 

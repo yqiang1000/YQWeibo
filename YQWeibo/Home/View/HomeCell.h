@@ -19,9 +19,13 @@
 @property (strong, nonatomic) UILabel *textLabel1;
 @property (strong, nonatomic) UILabel *textLabel2;
 
+@property (strong, nonatomic) UIView *buttonView;
+
 @property (strong, nonatomic) NSArray *data;
 
+@property (strong, nonatomic) UIView *view;
 @property (strong, nonatomic) ImageCollectionView *collectionView;
+@property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
 
 @property (strong, nonatomic) HomeLayout *homeLayout;
 

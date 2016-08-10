@@ -21,6 +21,8 @@
 @property (assign, nonatomic) CGRect reTextFrame; //转发的文字
 @property (assign, nonatomic) CGRect imageFrame; //微博图片
 
+@property (assign, nonatomic) CGRect buttonFrame;
+
 @property (copy, nonatomic) NSMutableAttributedString *sourceText;
 @property (copy, nonatomic) NSMutableAttributedString *text;
 @property (copy, nonatomic) NSMutableAttributedString *reText;
