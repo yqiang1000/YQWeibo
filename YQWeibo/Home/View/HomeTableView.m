@@ -8,6 +8,7 @@
 
 #import "HomeTableView.h"
 #import "HomeCell.h"
+#import "DetailViewController.h"
 
 @implementation HomeTableView
 
@@ -51,6 +52,15 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.homeLayout = _data[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    HomeLayout *homeLayout = _data[indexPath.row];
+    DetailViewController *detailVC = [[DetailViewController alloc] init];
+    detailVC.homeLayout = homeLayout;
+    
+    [self.ViewController.navigationController pushViewController:detailVC animated:YES];
+    
 }
 
 

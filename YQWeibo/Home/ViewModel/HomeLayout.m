@@ -147,7 +147,7 @@
     
     self.buttonFrame = CGRectMake(5, buttonH, kScreenWidth - 10, 40);
     
-    self.frame = CGRectMake(0, 0, kScreenWidth, buttonH + _buttonFrame.size.height);
+    self.frame = CGRectMake(0, 0, kScreenWidth, buttonH + _buttonFrame.size.height + 10);
 }
 
 

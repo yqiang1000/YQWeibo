@@ -62,6 +62,15 @@
     [WeiboSDK sendRequest:request];
 }
 
+- (void)leftItem:(UINavigationItem *)item {
+    
+}
+
+- (void)rightItem:(UINavigationItem *)item {
+    
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     

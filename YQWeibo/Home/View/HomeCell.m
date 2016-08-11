@@ -94,21 +94,56 @@
     }
     
     //buttonView
+    [_buttonView removeFromSuperview];
     self.buttonView.frame = _homeLayout.buttonFrame;
     [self.contentView addSubview:_buttonView];
     
-
+    
     [self.contentView addSubview:_headImageView];
     [self.contentView addSubview:_nameLabel];
     [self.contentView addSubview:_sourceLabel];
     [self.contentView addSubview:_textLabel1];
     [self.contentView addSubview:_textLabel2];
     
+    NSArray *titleArray = @[@"转发",@"评论",@"赞"];
     
-    UIButton *bt1 = [UIButton new];
-    UIButton *bt2 = [UIButton new];
-    UIButton *bt3 = [UIButton new];
+    
+    CGFloat btH = _buttonView.frame.size.height;
+    CGFloat btW = _buttonView.frame.size.width / 3.0;
+    
+    
+    for (int i = 0; i < 3 ; i++) {
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i * btW, 0, btW, btH)];
+        button.layer.borderColor = [UIColor grayColor].CGColor;
+        button.layer.borderWidth = 0.5;
+        [button setTitle:titleArray[i] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        button.tag = i;
+        [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_buttonView addSubview:button];
+        
+    }
 }
+
+- (void)buttonAction:(UIButton *)button {
+    switch (button.tag) {
+        case 0:
+            NSLog(@"转发");
+            break;
+        case 1:
+            NSLog(@"评论");
+
+            break;
+        case 2:
+            NSLog(@"赞");
+
+            break;
+            
+        default:
+            break;
+    }
+}
+
 
 //单例
 - (UIImageView *)headImageView {
@@ -179,6 +214,7 @@
     [super setSelected:selected animated:animated];
     
     if (selected) {
+        self.contentView.backgroundColor = [UIColor blueColor];
     } else {
         self.contentView.backgroundColor = [UIColor whiteColor];
     }

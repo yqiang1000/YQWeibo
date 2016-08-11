@@ -26,10 +26,6 @@
 - (IBAction)loginInAction:(UIButton *)sender {
     
     [self login];
-//    WBAuthorizeRequest *request = [WBAuthorizeRequest request];
-//    request.redirectURI = kRedirectURL;
-//    request.scope = @"all";
-//    [WeiboSDK sendRequest:request];
 }
 
 - (void)didReceiveMemoryWarning {

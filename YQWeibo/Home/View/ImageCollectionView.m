@@ -55,8 +55,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"item = %ld ",indexPath.item);
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    UIViewController *viewC = cell.ViewController;
+    NSDictionary *urlDic = _data[indexPath.item];
+    
     
 }
 

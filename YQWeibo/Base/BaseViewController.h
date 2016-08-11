@@ -14,4 +14,7 @@
 - (void)title:(NSString *)title color:(UIColor *)color;
 - (void)login;
 
+- (void)leftItem:(UINavigationItem *)item;
+- (void)rightItem:(UINavigationItem *)item;
+
 @end
